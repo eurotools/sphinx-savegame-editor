@@ -59,11 +59,29 @@
     <Compile Include="Forms\AddObjectives.Designer.cs">
       <DependentUpon>AddObjectives.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Panels\UserControl_LevelTriggers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Panels\UserControl_LevelTriggers.Designer.cs">
+      <DependentUpon>UserControl_LevelTriggers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Panels\UserControl_Objectives.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Forms\Panels\UserControl_Objectives.Designer.cs">
       <DependentUpon>UserControl_Objectives.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Panels\UserControl_OtherData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Panels\UserControl_OtherData.Designer.cs">
+      <DependentUpon>UserControl_OtherData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Panels\UserControl_PlayerData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Panels\UserControl_PlayerData.Designer.cs">
+      <DependentUpon>UserControl_PlayerData.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -116,8 +134,17 @@
     <EmbeddedResource Include="Forms\AddObjectives.resx">
       <DependentUpon>AddObjectives.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Panels\UserControl_LevelTriggers.resx">
+      <DependentUpon>UserControl_LevelTriggers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Panels\UserControl_Objectives.resx">
       <DependentUpon>UserControl_Objectives.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Panels\UserControl_OtherData.resx">
+      <DependentUpon>UserControl_OtherData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Panels\UserControl_PlayerData.resx">
+      <DependentUpon>UserControl_PlayerData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

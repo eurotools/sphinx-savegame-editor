@@ -62,57 +62,6 @@ namespace SavegameEditor
                 cbxLevelHashCode.SelectedIndex = 0;
             }
             cbxLevelHashCode.EndUpdate();
-
-            //Others Page
-            Dictionary<uint, string> itemsSection = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_Item", "HT_File");
-            string[] hashcodesArray = itemsSection.Values.ToArray();
-            cbxProgMumBut1.BeginUpdate();
-            cbxProgMumBut1.Items.AddRange(hashcodesArray);
-            if (cbxProgMumBut1.Items.Count > 0)
-            {
-                cbxProgMumBut1.SelectedIndex = 0;
-            }
-            cbxProgMumBut1.EndUpdate();
-
-            cbxProgMumBut2.BeginUpdate();
-            cbxProgMumBut2.Items.AddRange(hashcodesArray);
-            if (cbxProgMumBut2.Items.Count > 0)
-            {
-                cbxProgMumBut2.SelectedIndex = 0;
-            }
-            cbxProgMumBut2.EndUpdate();
-
-            cbxProgMumBut3.BeginUpdate();
-            cbxProgMumBut3.Items.AddRange(hashcodesArray);
-            if (cbxProgMumBut3.Items.Count > 0)
-            {
-                cbxProgMumBut3.SelectedIndex = 0;
-            }
-            cbxProgMumBut3.EndUpdate();
-
-            cbxProgSphinxBut1.BeginUpdate();
-            cbxProgSphinxBut1.Items.AddRange(hashcodesArray);
-            if (cbxProgSphinxBut1.Items.Count > 0)
-            {
-                cbxProgSphinxBut1.SelectedIndex = 0;
-            }
-            cbxProgSphinxBut1.EndUpdate();
-
-            cbxProgSphinxBut2.BeginUpdate();
-            cbxProgSphinxBut2.Items.AddRange(hashcodesArray);
-            if (cbxProgSphinxBut2.Items.Count > 0)
-            {
-                cbxProgSphinxBut2.SelectedIndex = 0;
-            }
-            cbxProgSphinxBut2.EndUpdate();
-
-            cbxProgSphinxBut3.BeginUpdate();
-            cbxProgSphinxBut3.Items.AddRange(hashcodesArray);
-            if (cbxProgSphinxBut3.Items.Count > 0)
-            {
-                cbxProgSphinxBut3.SelectedIndex = 0;
-            }
-            cbxProgSphinxBut3.EndUpdate();
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
@@ -197,24 +146,6 @@ namespace SavegameEditor
             }
         }
 
-        //-------------------------------------------------------------------------------------------------------------------------------
-        private void NudSphinxActiveNotes_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (fileData != null)
-            {
-                fileData.headerData.ActiveNotesSphinx = (ushort)nudSphinxActiveNotes.Value;
-            }
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------
-        private void NudMummyActiveNotes_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (fileData != null)
-            {
-                fileData.headerData.ActiveNotesMummy = (ushort)nudMummyActiveNotes.Value;
-            }
-        }
-
         //*===============================================================================================
         //* SECONDARY HEADER - FORM EVENTS
         //*===============================================================================================
@@ -271,125 +202,6 @@ namespace SavegameEditor
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
-        internal void PrintLevelTriggers(SvFile savegameData)
-        {
-            lvwCurrentLevelTriggers.BeginUpdate();
-            foreach (var triggerData in savegameData.cur_level_triggers)
-            {
-                lvwCurrentLevelTriggers.Items.Add(new ListViewItem(new[] { triggerData.trig_type.ToString(), triggerData.trig_subtype.ToString(), triggerData.saved_state_value.ToString(), triggerData.vector_xyz.X.ToString(), triggerData.vector_xyz.Y.ToString(), triggerData.vector_xyz.Z.ToString() }));
-            }
-            lvwCurrentLevelTriggers.EndUpdate();
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------
-        internal void PrintCharactersData(SvFile saveGameData)
-        {
-            cbxPlayerCharacter.SelectedIndex = (int)saveGameData.player_character_idx;
-            chkMummyCopy1.Checked = saveGameData.triple_mummy_copies_are_active[0] == 1;
-            chkMummyCopy2.Checked = saveGameData.triple_mummy_copies_are_active[1] == 1;
-
-            //Print position
-            lvwTripMummyPos.BeginUpdate();
-            foreach (SvVectorXYZW mummyPos in saveGameData.triple_mummy_copies_postition)
-            {
-                lvwTripMummyPos.Items.Add(new ListViewItem(new[] { mummyPos.X.ToString(), mummyPos.Y.ToString(), mummyPos.Z.ToString(), mummyPos.W.ToString() }));
-            }
-            lvwTripMummyPos.EndUpdate();
-
-            //Print position
-            lvwTripMummyRot.BeginUpdate();
-            foreach (SvVectorXYZW mummyRot in saveGameData.triple_mummy_copies_postition)
-            {
-                lvwTripMummyRot.Items.Add(new ListViewItem(new[] { mummyRot.X.ToString(), mummyRot.Y.ToString(), mummyRot.Z.ToString(), mummyRot.W.ToString() }));
-            }
-            lvwTripMummyRot.EndUpdate();
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------
-        internal void PrintCameraSettings(SvFile fileData)
-        {
-            txtAngle.Text = fileData.cameraSettings.camera_angle.ToString();
-            txtElevation.Text = fileData.cameraSettings.camera_elevation.ToString();
-            txtDistance.Text = fileData.cameraSettings.camera_distance.ToString();
-            lvwCameraPos.Items.Add(new ListViewItem(new[] { fileData.cameraSettings.camera_position.X.ToString(), fileData.cameraSettings.camera_position.Y.ToString(), fileData.cameraSettings.camera_position.Z.ToString(), fileData.cameraSettings.camera_position.W.ToString() }));
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------
-        internal void PrintProgrammableButtons(SvFile fileData)
-        {
-            Dictionary<uint, string> itemsSection = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_Item", "HT_File");
-
-            //Mummy Buttons
-            if (itemsSection.ContainsKey(fileData.mummy_prog_buttons[0]))
-            {
-                cbxProgMumBut1.SelectedItem = itemsSection[fileData.mummy_prog_buttons[0]];
-            }
-            if (itemsSection.ContainsKey(fileData.mummy_prog_buttons[1]))
-            {
-                cbxProgMumBut2.SelectedItem = itemsSection[fileData.mummy_prog_buttons[1]];
-            }
-            if (itemsSection.ContainsKey(fileData.mummy_prog_buttons[2]))
-            {
-                cbxProgMumBut3.SelectedItem = itemsSection[fileData.mummy_prog_buttons[2]];
-            }
-
-            //Sphinx buttons
-            if (itemsSection.ContainsKey(fileData.sphinx_prog_buttons[0]))
-            {
-                cbxProgSphinxBut1.SelectedItem = itemsSection[fileData.sphinx_prog_buttons[0]];
-            }
-            if (itemsSection.ContainsKey(fileData.sphinx_prog_buttons[1]))
-            {
-                cbxProgSphinxBut2.SelectedItem = itemsSection[fileData.sphinx_prog_buttons[1]];
-            }
-            if (itemsSection.ContainsKey(fileData.sphinx_prog_buttons[2]))
-            {
-                cbxProgSphinxBut3.SelectedItem = itemsSection[fileData.sphinx_prog_buttons[2]];
-            }
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------
-        private void PrintPlayerData(SvFile fileData)
-        {
-            //Player data properties
-            cbxPlayerCharacter.SelectedIndex = (int)fileData.player_character_idx;
-            chkMummyCopy1.Checked = fileData.triple_mummy_copies_are_active[0] == 1;
-            chkMummyCopy2.Checked = fileData.triple_mummy_copies_are_active[1] == 1;
-
-            //Print position
-            foreach (SvVectorXYZW playerPos in fileData.triple_mummy_copies_postition)
-            {
-                lvwTripMummyPos.Items.Add(new ListViewItem(new[] { playerPos.X.ToString(), playerPos.Y.ToString(), playerPos.Z.ToString(), playerPos.W.ToString() }));
-            }
-
-            //Print rotation
-            foreach (SvVectorXYZW playerRotation in fileData.triple_mummy_copies_rotation)
-            {
-                lvwTripMummyRot.Items.Add(new ListViewItem(new[] { playerRotation.X.ToString(), playerRotation.Y.ToString(), playerRotation.Z.ToString(), playerRotation.W.ToString() }));
-            }
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------
-        private void PrintInventoryNotes(SvFile fileData)
-        {
-            Dictionary<uint, string> fileSection = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_Text");
-
-            //Sphinx
-            nudSphinxActiveNotes.Value = fileData.headerData.ActiveNotesSphinx;
-            foreach (KeyValuePair<uint, uint> sphinxNote in fileData.headerData.notes_sphinx)
-            {
-                lvwNotesSphinxInv.Items.Add(new ListViewItem(new[] { fileSection[sphinxNote.Key], fileSection[sphinxNote.Value] }));
-            }
-
-            //Mummy
-            nudMummyActiveNotes.Value = fileData.headerData.ActiveNotesMummy;
-            foreach (KeyValuePair<uint, uint> mummyNote in fileData.headerData.notes_mummy)
-            {
-                lvwNotesMummyInv.Items.Add(new ListViewItem(new[] { fileSection[mummyNote.Key], fileSection[mummyNote.Value] }));
-            }
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------
         private void OpenSaveFile(string filePath)
         {
             //Read file
@@ -405,12 +217,12 @@ namespace SavegameEditor
                 PrintSecondaryHeader(fileData);
                 SphinxInventory.LoadInventory(fileData.sphinx_inventory);
                 MummyInventory.LoadInventory(fileData.mummy_inventory);
-                PrintLevelTriggers(fileData);
-                PrintCharactersData(fileData);
-                PrintCameraSettings(fileData);
-                PrintProgrammableButtons(fileData);
-                PrintPlayerData(fileData);
-                PrintInventoryNotes(fileData);
+                UserControl_LevelTriggers.PrintLevelTriggers(fileData);
+                userControl_PlayerData1.PrintCharactersData(fileData);
+                UserControl_OtherData.PrintCameraSettings(fileData);
+                UserControl_OtherData.PrintProgrammableButtons(fileData);
+                userControl_PlayerData1.PrintPlayerData(fileData);
+                UserControl_OtherData.PrintInventoryNotes(fileData);
             }
             catch (Exception ex)
             {
@@ -431,7 +243,7 @@ namespace SavegameEditor
         //-------------------------------------------------------------------------------------------------------------------------------
         private void BtnAutoLOad_Click(object sender, EventArgs e)
         {
-            OpenSaveFile(@"C:\Users\Jordi Martinez\Saved Games\Sphinx__bin_PC\DATA0");
+            OpenSaveFile(@"C:\Users\Jordi Martinez\Saved Games\Sphinx__bin_PC\DATA0.OLD-2023.07.23-15.44.18");
         }
     }
 

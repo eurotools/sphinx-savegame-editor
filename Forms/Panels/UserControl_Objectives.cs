@@ -69,44 +69,52 @@ namespace SavegameEditor.Forms.Panels
             ((FrmMain)Application.OpenForms[nameof(FrmMain)]).StatusLabelObjectivesCount.Text = string.Format("Objectives Count: {0}", lvwObjectives.Items.Count);
         }
 
-
         //*===============================================================================================
         //* LIST VIEW CONTEXT MENU
         //*===============================================================================================
         private void MenuItem_AddObjectives_Click(object sender, EventArgs e)
         {
-            using (AddObjectives addObjForm = new AddObjectives())
+            if (fileData != null)
             {
-                addObjForm.ShowDialog();
+                using (AddObjectives addObjForm = new AddObjectives())
+                {
+                    addObjForm.ShowDialog();
+                }
             }
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
         private void MenuItem_DeleteObjective_Click(object sender, EventArgs e)
         {
-            lvwObjectives.BeginUpdate();
-            foreach (ListViewItem itemToDelete in lvwObjectives.SelectedItems)
+            if (lvwObjectives.SelectedItems.Count > 0)
             {
-                fileData.Objectives.Remove((uint)itemToDelete.Tag);
-                itemToDelete.Remove();
+                lvwObjectives.BeginUpdate();
+                foreach (ListViewItem itemToDelete in lvwObjectives.SelectedItems)
+                {
+                    fileData.Objectives.Remove((uint)itemToDelete.Tag);
+                    itemToDelete.Remove();
+                }
+                lvwObjectives.EndUpdate();
+                ((FrmMain)Application.OpenForms[nameof(FrmMain)]).StatusLabelObjectivesCount.Text = string.Format("Objectives Count: {0}", lvwObjectives.Items.Count);
             }
-            lvwObjectives.EndUpdate();
-            ((FrmMain)Application.OpenForms[nameof(FrmMain)]).StatusLabelObjectivesCount.Text = string.Format("Objectives Count: {0}", lvwObjectives.Items.Count);
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
         private void MenuItem_ModifyObjectives_Click(object sender, EventArgs e)
         {
-            using (ObjectiveProperties objProps = new ObjectiveProperties(lvwObjectives.SelectedItems))
+            if (lvwObjectives.SelectedItems.Count > 0)
             {
-                objProps.ShowDialog();
+                using (ObjectiveProperties objProps = new ObjectiveProperties(lvwObjectives.SelectedItems))
+                {
+                    objProps.ShowDialog();
+                }
             }
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
         private void LvwObjectives_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (lvwObjectives.Items.Count > 0)
+            if (lvwObjectives.SelectedItems.Count > 0)
             {
                 using (ObjectiveProperties objPropsForm = new ObjectiveProperties(lvwObjectives.SelectedItems))
                 {

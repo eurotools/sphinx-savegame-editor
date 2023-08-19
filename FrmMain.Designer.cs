@@ -70,76 +70,10 @@ namespace SavegameEditor
             this.tabPageMummyInv = new System.Windows.Forms.TabPage();
             this.MummyInventory = new SavegameEditor.UserControl_BosInventory();
             this.tabPageCurrentLevel = new System.Windows.Forms.TabPage();
-            this.lvwCurrentLevelTriggers = new SavegameEditor.ListView_ColumnSortingClick();
-            this.colTrigType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColTrigSubtype = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColSavedStateValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColPosX = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColPosY = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColPosZ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.UserControl_LevelTriggers = new SavegameEditor.Forms.Panels.UserControl_LevelTriggers();
             this.tabPagePlayerData = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.lvwTripMummyRot = new SavegameEditor.ListView_ColumnSortingClick();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.lvwTripMummyPos = new SavegameEditor.ListView_ColumnSortingClick();
-            this.ColMumPosX = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColMumPosY = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColMumPosZ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColMumPosW = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.chkMummyCopy2 = new System.Windows.Forms.CheckBox();
-            this.chkMummyCopy1 = new System.Windows.Forms.CheckBox();
-            this.grbxPlayerIndex = new System.Windows.Forms.GroupBox();
-            this.cbxPlayerCharacter = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.userControl_PlayerData1 = new SavegameEditor.Forms.Panels.UserControl_PlayerData();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
-            this.tabControlNotes = new System.Windows.Forms.TabControl();
-            this.tabPageSphinx = new System.Windows.Forms.TabPage();
-            this.grbxPropsSphinxInv = new System.Windows.Forms.GroupBox();
-            this.nudSphinxActiveNotes = new System.Windows.Forms.NumericUpDown();
-            this.lblSphinxActiveNotes = new System.Windows.Forms.Label();
-            this.lvwNotesSphinxInv = new SavegameEditor.ListView_ColumnSortingClick();
-            this.colSphinxNoteTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colSphinxNoteDesc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPageMummy = new System.Windows.Forms.TabPage();
-            this.grbxPropsMummyInv = new System.Windows.Forms.GroupBox();
-            this.nudMummyActiveNotes = new System.Windows.Forms.NumericUpDown();
-            this.lblMummyActiveNotes = new System.Windows.Forms.Label();
-            this.lvwNotesMummyInv = new SavegameEditor.ListView_ColumnSortingClick();
-            this.colMummyTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colMummyDesc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.grbxSphinx = new System.Windows.Forms.GroupBox();
-            this.cbxProgSphinxBut3 = new System.Windows.Forms.ComboBox();
-            this.lblProgSphinxBut3 = new System.Windows.Forms.Label();
-            this.cbxProgSphinxBut2 = new System.Windows.Forms.ComboBox();
-            this.lblProgSphinxBut2 = new System.Windows.Forms.Label();
-            this.cbxProgSphinxBut1 = new System.Windows.Forms.ComboBox();
-            this.lblProgSphinxBut1 = new System.Windows.Forms.Label();
-            this.grbxMummy = new System.Windows.Forms.GroupBox();
-            this.cbxProgMumBut3 = new System.Windows.Forms.ComboBox();
-            this.lblProgMumBut3 = new System.Windows.Forms.Label();
-            this.cbxProgMumBut2 = new System.Windows.Forms.ComboBox();
-            this.lblProgMumBut2 = new System.Windows.Forms.Label();
-            this.cbxProgMumBut1 = new System.Windows.Forms.ComboBox();
-            this.lblProgMumBut1 = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.lvwCameraPos = new SavegameEditor.ListView_ColumnSortingClick();
-            this.colCameraX = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colCameraY = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colCameraZ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colCameraW = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.txtDistance = new System.Windows.Forms.TextBox();
-            this.lblDistance = new System.Windows.Forms.Label();
-            this.txtElevation = new System.Windows.Forms.TextBox();
-            this.lblElevation = new System.Windows.Forms.Label();
-            this.txtAngle = new System.Windows.Forms.TextBox();
-            this.lblAngle = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nudTotalHealthThirds = new System.Windows.Forms.NumericUpDown();
             this.nudHealthThirds = new System.Windows.Forms.NumericUpDown();
@@ -154,6 +88,7 @@ namespace SavegameEditor
             this.txtFilePath = new System.Windows.Forms.TextBox();
             this.lblFile = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.UserControl_OtherData = new SavegameEditor.Forms.Panels.UserControl_OtherData();
             this.MainMenu.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLevelEntrance)).BeginInit();
@@ -169,23 +104,7 @@ namespace SavegameEditor
             this.tabPageMummyInv.SuspendLayout();
             this.tabPageCurrentLevel.SuspendLayout();
             this.tabPagePlayerData.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.grbxPlayerIndex.SuspendLayout();
             this.tabPageOthers.SuspendLayout();
-            this.tabControlNotes.SuspendLayout();
-            this.tabPageSphinx.SuspendLayout();
-            this.grbxPropsSphinxInv.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSphinxActiveNotes)).BeginInit();
-            this.tabPageMummy.SuspendLayout();
-            this.grbxPropsMummyInv.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMummyActiveNotes)).BeginInit();
-            this.grbxSphinx.SuspendLayout();
-            this.grbxMummy.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTotalHealthThirds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHealthThirds)).BeginInit();
@@ -612,7 +531,7 @@ namespace SavegameEditor
             // tabPageCurrentLevel
             // 
             this.tabPageCurrentLevel.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageCurrentLevel.Controls.Add(this.lvwCurrentLevelTriggers);
+            this.tabPageCurrentLevel.Controls.Add(this.UserControl_LevelTriggers);
             this.tabPageCurrentLevel.Location = new System.Drawing.Point(4, 22);
             this.tabPageCurrentLevel.Name = "tabPageCurrentLevel";
             this.tabPageCurrentLevel.Padding = new System.Windows.Forms.Padding(3);
@@ -620,60 +539,18 @@ namespace SavegameEditor
             this.tabPageCurrentLevel.TabIndex = 2;
             this.tabPageCurrentLevel.Text = "Current Level";
             // 
-            // lvwCurrentLevelTriggers
+            // UserControl_LevelTriggers
             // 
-            this.lvwCurrentLevelTriggers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colTrigType,
-            this.ColTrigSubtype,
-            this.ColSavedStateValue,
-            this.ColPosX,
-            this.ColPosY,
-            this.ColPosZ});
-            this.lvwCurrentLevelTriggers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvwCurrentLevelTriggers.FullRowSelect = true;
-            this.lvwCurrentLevelTriggers.HideSelection = false;
-            this.lvwCurrentLevelTriggers.Location = new System.Drawing.Point(3, 3);
-            this.lvwCurrentLevelTriggers.Name = "lvwCurrentLevelTriggers";
-            this.lvwCurrentLevelTriggers.Size = new System.Drawing.Size(802, 575);
-            this.lvwCurrentLevelTriggers.TabIndex = 0;
-            this.lvwCurrentLevelTriggers.UseCompatibleStateImageBehavior = false;
-            this.lvwCurrentLevelTriggers.View = System.Windows.Forms.View.Details;
-            // 
-            // colTrigType
-            // 
-            this.colTrigType.Text = "Trigger Type";
-            this.colTrigType.Width = 120;
-            // 
-            // ColTrigSubtype
-            // 
-            this.ColTrigSubtype.Text = "Trigger Subtype";
-            this.ColTrigSubtype.Width = 120;
-            // 
-            // ColSavedStateValue
-            // 
-            this.ColSavedStateValue.Text = "Saved State Value";
-            this.ColSavedStateValue.Width = 120;
-            // 
-            // ColPosX
-            // 
-            this.ColPosX.Text = "X";
-            this.ColPosX.Width = 100;
-            // 
-            // ColPosY
-            // 
-            this.ColPosY.Text = "Y";
-            this.ColPosY.Width = 100;
-            // 
-            // ColPosZ
-            // 
-            this.ColPosZ.Text = "Z";
-            this.ColPosZ.Width = 100;
+            this.UserControl_LevelTriggers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserControl_LevelTriggers.Location = new System.Drawing.Point(3, 3);
+            this.UserControl_LevelTriggers.Name = "UserControl_LevelTriggers";
+            this.UserControl_LevelTriggers.Size = new System.Drawing.Size(802, 575);
+            this.UserControl_LevelTriggers.TabIndex = 0;
             // 
             // tabPagePlayerData
             // 
             this.tabPagePlayerData.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPagePlayerData.Controls.Add(this.groupBox3);
-            this.tabPagePlayerData.Controls.Add(this.grbxPlayerIndex);
+            this.tabPagePlayerData.Controls.Add(this.userControl_PlayerData1);
             this.tabPagePlayerData.Location = new System.Drawing.Point(4, 22);
             this.tabPagePlayerData.Name = "tabPagePlayerData";
             this.tabPagePlayerData.Padding = new System.Windows.Forms.Padding(3);
@@ -681,595 +558,24 @@ namespace SavegameEditor
             this.tabPagePlayerData.TabIndex = 3;
             this.tabPagePlayerData.Text = "Player Data";
             // 
-            // groupBox3
+            // userControl_PlayerData1
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.groupBox6);
-            this.groupBox3.Controls.Add(this.groupBox5);
-            this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Location = new System.Drawing.Point(6, 67);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(796, 508);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Triple Mummy Copies";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox6.Controls.Add(this.lvwTripMummyRot);
-            this.groupBox6.Location = new System.Drawing.Point(6, 247);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(784, 255);
-            this.groupBox6.TabIndex = 2;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Rotation";
-            // 
-            // lvwTripMummyRot
-            // 
-            this.lvwTripMummyRot.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.lvwTripMummyRot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvwTripMummyRot.FullRowSelect = true;
-            this.lvwTripMummyRot.HideSelection = false;
-            this.lvwTripMummyRot.Location = new System.Drawing.Point(3, 16);
-            this.lvwTripMummyRot.Name = "lvwTripMummyRot";
-            this.lvwTripMummyRot.Size = new System.Drawing.Size(778, 236);
-            this.lvwTripMummyRot.TabIndex = 0;
-            this.lvwTripMummyRot.UseCompatibleStateImageBehavior = false;
-            this.lvwTripMummyRot.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "X";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Y";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Z";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "W";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox5.Controls.Add(this.lvwTripMummyPos);
-            this.groupBox5.Location = new System.Drawing.Point(6, 68);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(784, 173);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Position";
-            // 
-            // lvwTripMummyPos
-            // 
-            this.lvwTripMummyPos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ColMumPosX,
-            this.ColMumPosY,
-            this.ColMumPosZ,
-            this.ColMumPosW});
-            this.lvwTripMummyPos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvwTripMummyPos.FullRowSelect = true;
-            this.lvwTripMummyPos.HideSelection = false;
-            this.lvwTripMummyPos.Location = new System.Drawing.Point(3, 16);
-            this.lvwTripMummyPos.Name = "lvwTripMummyPos";
-            this.lvwTripMummyPos.Size = new System.Drawing.Size(778, 154);
-            this.lvwTripMummyPos.TabIndex = 0;
-            this.lvwTripMummyPos.UseCompatibleStateImageBehavior = false;
-            this.lvwTripMummyPos.View = System.Windows.Forms.View.Details;
-            // 
-            // ColMumPosX
-            // 
-            this.ColMumPosX.Text = "X";
-            // 
-            // ColMumPosY
-            // 
-            this.ColMumPosY.Text = "Y";
-            // 
-            // ColMumPosZ
-            // 
-            this.ColMumPosZ.Text = "Z";
-            // 
-            // ColMumPosW
-            // 
-            this.ColMumPosW.Text = "W";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.chkMummyCopy2);
-            this.groupBox4.Controls.Add(this.chkMummyCopy1);
-            this.groupBox4.Location = new System.Drawing.Point(6, 19);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(784, 43);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Active Copies?";
-            // 
-            // chkMummyCopy2
-            // 
-            this.chkMummyCopy2.AutoSize = true;
-            this.chkMummyCopy2.Location = new System.Drawing.Point(71, 19);
-            this.chkMummyCopy2.Name = "chkMummyCopy2";
-            this.chkMummyCopy2.Size = new System.Drawing.Size(59, 17);
-            this.chkMummyCopy2.TabIndex = 1;
-            this.chkMummyCopy2.Text = "Copy 2";
-            this.chkMummyCopy2.UseVisualStyleBackColor = true;
-            // 
-            // chkMummyCopy1
-            // 
-            this.chkMummyCopy1.AutoSize = true;
-            this.chkMummyCopy1.Location = new System.Drawing.Point(6, 19);
-            this.chkMummyCopy1.Name = "chkMummyCopy1";
-            this.chkMummyCopy1.Size = new System.Drawing.Size(59, 17);
-            this.chkMummyCopy1.TabIndex = 0;
-            this.chkMummyCopy1.Text = "Copy 1";
-            this.chkMummyCopy1.UseVisualStyleBackColor = true;
-            // 
-            // grbxPlayerIndex
-            // 
-            this.grbxPlayerIndex.Controls.Add(this.cbxPlayerCharacter);
-            this.grbxPlayerIndex.Controls.Add(this.label1);
-            this.grbxPlayerIndex.Location = new System.Drawing.Point(6, 6);
-            this.grbxPlayerIndex.Name = "grbxPlayerIndex";
-            this.grbxPlayerIndex.Size = new System.Drawing.Size(796, 55);
-            this.grbxPlayerIndex.TabIndex = 0;
-            this.grbxPlayerIndex.TabStop = false;
-            this.grbxPlayerIndex.Text = "Properties";
-            // 
-            // cbxPlayerCharacter
-            // 
-            this.cbxPlayerCharacter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxPlayerCharacter.FormattingEnabled = true;
-            this.cbxPlayerCharacter.Items.AddRange(new object[] {
-            "Sphinx",
-            "Mummy",
-            "Tut"});
-            this.cbxPlayerCharacter.Location = new System.Drawing.Point(100, 19);
-            this.cbxPlayerCharacter.Name = "cbxPlayerCharacter";
-            this.cbxPlayerCharacter.Size = new System.Drawing.Size(159, 21);
-            this.cbxPlayerCharacter.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Player Character:";
+            this.userControl_PlayerData1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl_PlayerData1.Location = new System.Drawing.Point(3, 3);
+            this.userControl_PlayerData1.Name = "userControl_PlayerData1";
+            this.userControl_PlayerData1.Size = new System.Drawing.Size(802, 575);
+            this.userControl_PlayerData1.TabIndex = 0;
             // 
             // tabPageOthers
             // 
             this.tabPageOthers.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageOthers.Controls.Add(this.tabControlNotes);
-            this.tabPageOthers.Controls.Add(this.grbxSphinx);
-            this.tabPageOthers.Controls.Add(this.grbxMummy);
-            this.tabPageOthers.Controls.Add(this.groupBox7);
+            this.tabPageOthers.Controls.Add(this.UserControl_OtherData);
             this.tabPageOthers.Location = new System.Drawing.Point(4, 22);
             this.tabPageOthers.Name = "tabPageOthers";
             this.tabPageOthers.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageOthers.Size = new System.Drawing.Size(808, 581);
             this.tabPageOthers.TabIndex = 4;
             this.tabPageOthers.Text = "Others";
-            // 
-            // tabControlNotes
-            // 
-            this.tabControlNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControlNotes.Controls.Add(this.tabPageSphinx);
-            this.tabControlNotes.Controls.Add(this.tabPageMummy);
-            this.tabControlNotes.Location = new System.Drawing.Point(6, 315);
-            this.tabControlNotes.Name = "tabControlNotes";
-            this.tabControlNotes.SelectedIndex = 0;
-            this.tabControlNotes.Size = new System.Drawing.Size(796, 260);
-            this.tabControlNotes.TabIndex = 9;
-            // 
-            // tabPageSphinx
-            // 
-            this.tabPageSphinx.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageSphinx.Controls.Add(this.grbxPropsSphinxInv);
-            this.tabPageSphinx.Controls.Add(this.lvwNotesSphinxInv);
-            this.tabPageSphinx.Location = new System.Drawing.Point(4, 22);
-            this.tabPageSphinx.Name = "tabPageSphinx";
-            this.tabPageSphinx.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSphinx.Size = new System.Drawing.Size(788, 234);
-            this.tabPageSphinx.TabIndex = 0;
-            this.tabPageSphinx.Text = "Sphinx";
-            // 
-            // grbxPropsSphinxInv
-            // 
-            this.grbxPropsSphinxInv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbxPropsSphinxInv.Controls.Add(this.nudSphinxActiveNotes);
-            this.grbxPropsSphinxInv.Controls.Add(this.lblSphinxActiveNotes);
-            this.grbxPropsSphinxInv.Location = new System.Drawing.Point(6, 6);
-            this.grbxPropsSphinxInv.Name = "grbxPropsSphinxInv";
-            this.grbxPropsSphinxInv.Size = new System.Drawing.Size(776, 50);
-            this.grbxPropsSphinxInv.TabIndex = 3;
-            this.grbxPropsSphinxInv.TabStop = false;
-            this.grbxPropsSphinxInv.Text = "Properties";
-            // 
-            // nudSphinxActiveNotes
-            // 
-            this.nudSphinxActiveNotes.Location = new System.Drawing.Point(83, 19);
-            this.nudSphinxActiveNotes.Name = "nudSphinxActiveNotes";
-            this.nudSphinxActiveNotes.Size = new System.Drawing.Size(120, 20);
-            this.nudSphinxActiveNotes.TabIndex = 1;
-            this.nudSphinxActiveNotes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NudSphinxActiveNotes_MouseClick);
-            // 
-            // lblSphinxActiveNotes
-            // 
-            this.lblSphinxActiveNotes.AutoSize = true;
-            this.lblSphinxActiveNotes.Location = new System.Drawing.Point(6, 21);
-            this.lblSphinxActiveNotes.Name = "lblSphinxActiveNotes";
-            this.lblSphinxActiveNotes.Size = new System.Drawing.Size(71, 13);
-            this.lblSphinxActiveNotes.TabIndex = 0;
-            this.lblSphinxActiveNotes.Text = "Active Notes:";
-            // 
-            // lvwNotesSphinxInv
-            // 
-            this.lvwNotesSphinxInv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwNotesSphinxInv.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colSphinxNoteTitle,
-            this.colSphinxNoteDesc});
-            this.lvwNotesSphinxInv.FullRowSelect = true;
-            this.lvwNotesSphinxInv.HideSelection = false;
-            this.lvwNotesSphinxInv.Location = new System.Drawing.Point(6, 62);
-            this.lvwNotesSphinxInv.Name = "lvwNotesSphinxInv";
-            this.lvwNotesSphinxInv.Size = new System.Drawing.Size(776, 166);
-            this.lvwNotesSphinxInv.TabIndex = 2;
-            this.lvwNotesSphinxInv.UseCompatibleStateImageBehavior = false;
-            this.lvwNotesSphinxInv.View = System.Windows.Forms.View.Details;
-            // 
-            // colSphinxNoteTitle
-            // 
-            this.colSphinxNoteTitle.Text = "Title";
-            this.colSphinxNoteTitle.Width = 200;
-            // 
-            // colSphinxNoteDesc
-            // 
-            this.colSphinxNoteDesc.Text = "Description";
-            this.colSphinxNoteDesc.Width = 200;
-            // 
-            // tabPageMummy
-            // 
-            this.tabPageMummy.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageMummy.Controls.Add(this.grbxPropsMummyInv);
-            this.tabPageMummy.Controls.Add(this.lvwNotesMummyInv);
-            this.tabPageMummy.Location = new System.Drawing.Point(4, 22);
-            this.tabPageMummy.Name = "tabPageMummy";
-            this.tabPageMummy.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMummy.Size = new System.Drawing.Size(788, 234);
-            this.tabPageMummy.TabIndex = 1;
-            this.tabPageMummy.Text = "Mummy";
-            // 
-            // grbxPropsMummyInv
-            // 
-            this.grbxPropsMummyInv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbxPropsMummyInv.Controls.Add(this.nudMummyActiveNotes);
-            this.grbxPropsMummyInv.Controls.Add(this.lblMummyActiveNotes);
-            this.grbxPropsMummyInv.Location = new System.Drawing.Point(6, 6);
-            this.grbxPropsMummyInv.Name = "grbxPropsMummyInv";
-            this.grbxPropsMummyInv.Size = new System.Drawing.Size(776, 50);
-            this.grbxPropsMummyInv.TabIndex = 1;
-            this.grbxPropsMummyInv.TabStop = false;
-            this.grbxPropsMummyInv.Text = "Properties";
-            // 
-            // nudMummyActiveNotes
-            // 
-            this.nudMummyActiveNotes.Location = new System.Drawing.Point(83, 19);
-            this.nudMummyActiveNotes.Name = "nudMummyActiveNotes";
-            this.nudMummyActiveNotes.Size = new System.Drawing.Size(120, 20);
-            this.nudMummyActiveNotes.TabIndex = 1;
-            this.nudMummyActiveNotes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NudMummyActiveNotes_MouseClick);
-            // 
-            // lblMummyActiveNotes
-            // 
-            this.lblMummyActiveNotes.AutoSize = true;
-            this.lblMummyActiveNotes.Location = new System.Drawing.Point(6, 21);
-            this.lblMummyActiveNotes.Name = "lblMummyActiveNotes";
-            this.lblMummyActiveNotes.Size = new System.Drawing.Size(71, 13);
-            this.lblMummyActiveNotes.TabIndex = 0;
-            this.lblMummyActiveNotes.Text = "Active Notes:";
-            // 
-            // lvwNotesMummyInv
-            // 
-            this.lvwNotesMummyInv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwNotesMummyInv.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colMummyTitle,
-            this.colMummyDesc});
-            this.lvwNotesMummyInv.FullRowSelect = true;
-            this.lvwNotesMummyInv.HideSelection = false;
-            this.lvwNotesMummyInv.Location = new System.Drawing.Point(6, 62);
-            this.lvwNotesMummyInv.Name = "lvwNotesMummyInv";
-            this.lvwNotesMummyInv.Size = new System.Drawing.Size(776, 166);
-            this.lvwNotesMummyInv.TabIndex = 0;
-            this.lvwNotesMummyInv.UseCompatibleStateImageBehavior = false;
-            this.lvwNotesMummyInv.View = System.Windows.Forms.View.Details;
-            // 
-            // colMummyTitle
-            // 
-            this.colMummyTitle.Text = "Title";
-            this.colMummyTitle.Width = 200;
-            // 
-            // colMummyDesc
-            // 
-            this.colMummyDesc.Text = "Description";
-            this.colMummyDesc.Width = 200;
-            // 
-            // grbxSphinx
-            // 
-            this.grbxSphinx.Controls.Add(this.cbxProgSphinxBut3);
-            this.grbxSphinx.Controls.Add(this.lblProgSphinxBut3);
-            this.grbxSphinx.Controls.Add(this.cbxProgSphinxBut2);
-            this.grbxSphinx.Controls.Add(this.lblProgSphinxBut2);
-            this.grbxSphinx.Controls.Add(this.cbxProgSphinxBut1);
-            this.grbxSphinx.Controls.Add(this.lblProgSphinxBut1);
-            this.grbxSphinx.Location = new System.Drawing.Point(6, 251);
-            this.grbxSphinx.Name = "grbxSphinx";
-            this.grbxSphinx.Size = new System.Drawing.Size(796, 58);
-            this.grbxSphinx.TabIndex = 8;
-            this.grbxSphinx.TabStop = false;
-            this.grbxSphinx.Text = "Sphinx Programmable Buttons";
-            // 
-            // cbxProgSphinxBut3
-            // 
-            this.cbxProgSphinxBut3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxProgSphinxBut3.FormattingEnabled = true;
-            this.cbxProgSphinxBut3.Location = new System.Drawing.Point(577, 19);
-            this.cbxProgSphinxBut3.Name = "cbxProgSphinxBut3";
-            this.cbxProgSphinxBut3.Size = new System.Drawing.Size(200, 21);
-            this.cbxProgSphinxBut3.TabIndex = 5;
-            // 
-            // lblProgSphinxBut3
-            // 
-            this.lblProgSphinxBut3.AutoSize = true;
-            this.lblProgSphinxBut3.Location = new System.Drawing.Point(524, 22);
-            this.lblProgSphinxBut3.Name = "lblProgSphinxBut3";
-            this.lblProgSphinxBut3.Size = new System.Drawing.Size(47, 13);
-            this.lblProgSphinxBut3.TabIndex = 4;
-            this.lblProgSphinxBut3.Text = "Button3:";
-            // 
-            // cbxProgSphinxBut2
-            // 
-            this.cbxProgSphinxBut2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxProgSphinxBut2.FormattingEnabled = true;
-            this.cbxProgSphinxBut2.Location = new System.Drawing.Point(318, 19);
-            this.cbxProgSphinxBut2.Name = "cbxProgSphinxBut2";
-            this.cbxProgSphinxBut2.Size = new System.Drawing.Size(200, 21);
-            this.cbxProgSphinxBut2.TabIndex = 3;
-            // 
-            // lblProgSphinxBut2
-            // 
-            this.lblProgSphinxBut2.AutoSize = true;
-            this.lblProgSphinxBut2.Location = new System.Drawing.Point(265, 22);
-            this.lblProgSphinxBut2.Name = "lblProgSphinxBut2";
-            this.lblProgSphinxBut2.Size = new System.Drawing.Size(47, 13);
-            this.lblProgSphinxBut2.TabIndex = 2;
-            this.lblProgSphinxBut2.Text = "Button2:";
-            // 
-            // cbxProgSphinxBut1
-            // 
-            this.cbxProgSphinxBut1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxProgSphinxBut1.FormattingEnabled = true;
-            this.cbxProgSphinxBut1.Location = new System.Drawing.Point(59, 19);
-            this.cbxProgSphinxBut1.Name = "cbxProgSphinxBut1";
-            this.cbxProgSphinxBut1.Size = new System.Drawing.Size(200, 21);
-            this.cbxProgSphinxBut1.TabIndex = 1;
-            // 
-            // lblProgSphinxBut1
-            // 
-            this.lblProgSphinxBut1.AutoSize = true;
-            this.lblProgSphinxBut1.Location = new System.Drawing.Point(6, 22);
-            this.lblProgSphinxBut1.Name = "lblProgSphinxBut1";
-            this.lblProgSphinxBut1.Size = new System.Drawing.Size(47, 13);
-            this.lblProgSphinxBut1.TabIndex = 0;
-            this.lblProgSphinxBut1.Text = "Button1:";
-            // 
-            // grbxMummy
-            // 
-            this.grbxMummy.Controls.Add(this.cbxProgMumBut3);
-            this.grbxMummy.Controls.Add(this.lblProgMumBut3);
-            this.grbxMummy.Controls.Add(this.cbxProgMumBut2);
-            this.grbxMummy.Controls.Add(this.lblProgMumBut2);
-            this.grbxMummy.Controls.Add(this.cbxProgMumBut1);
-            this.grbxMummy.Controls.Add(this.lblProgMumBut1);
-            this.grbxMummy.Location = new System.Drawing.Point(6, 184);
-            this.grbxMummy.Name = "grbxMummy";
-            this.grbxMummy.Size = new System.Drawing.Size(796, 61);
-            this.grbxMummy.TabIndex = 1;
-            this.grbxMummy.TabStop = false;
-            this.grbxMummy.Text = "Mummy Programmable Buttons";
-            // 
-            // cbxProgMumBut3
-            // 
-            this.cbxProgMumBut3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxProgMumBut3.FormattingEnabled = true;
-            this.cbxProgMumBut3.Location = new System.Drawing.Point(577, 19);
-            this.cbxProgMumBut3.Name = "cbxProgMumBut3";
-            this.cbxProgMumBut3.Size = new System.Drawing.Size(200, 21);
-            this.cbxProgMumBut3.TabIndex = 5;
-            // 
-            // lblProgMumBut3
-            // 
-            this.lblProgMumBut3.AutoSize = true;
-            this.lblProgMumBut3.Location = new System.Drawing.Point(524, 22);
-            this.lblProgMumBut3.Name = "lblProgMumBut3";
-            this.lblProgMumBut3.Size = new System.Drawing.Size(47, 13);
-            this.lblProgMumBut3.TabIndex = 4;
-            this.lblProgMumBut3.Text = "Button3:";
-            // 
-            // cbxProgMumBut2
-            // 
-            this.cbxProgMumBut2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxProgMumBut2.FormattingEnabled = true;
-            this.cbxProgMumBut2.Location = new System.Drawing.Point(318, 19);
-            this.cbxProgMumBut2.Name = "cbxProgMumBut2";
-            this.cbxProgMumBut2.Size = new System.Drawing.Size(200, 21);
-            this.cbxProgMumBut2.TabIndex = 3;
-            // 
-            // lblProgMumBut2
-            // 
-            this.lblProgMumBut2.AutoSize = true;
-            this.lblProgMumBut2.Location = new System.Drawing.Point(265, 22);
-            this.lblProgMumBut2.Name = "lblProgMumBut2";
-            this.lblProgMumBut2.Size = new System.Drawing.Size(47, 13);
-            this.lblProgMumBut2.TabIndex = 2;
-            this.lblProgMumBut2.Text = "Button2:";
-            // 
-            // cbxProgMumBut1
-            // 
-            this.cbxProgMumBut1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxProgMumBut1.FormattingEnabled = true;
-            this.cbxProgMumBut1.Location = new System.Drawing.Point(59, 19);
-            this.cbxProgMumBut1.Name = "cbxProgMumBut1";
-            this.cbxProgMumBut1.Size = new System.Drawing.Size(200, 21);
-            this.cbxProgMumBut1.TabIndex = 1;
-            // 
-            // lblProgMumBut1
-            // 
-            this.lblProgMumBut1.AutoSize = true;
-            this.lblProgMumBut1.Location = new System.Drawing.Point(6, 22);
-            this.lblProgMumBut1.Name = "lblProgMumBut1";
-            this.lblProgMumBut1.Size = new System.Drawing.Size(47, 13);
-            this.lblProgMumBut1.TabIndex = 0;
-            this.lblProgMumBut1.Text = "Button1:";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox7.Controls.Add(this.lvwCameraPos);
-            this.groupBox7.Controls.Add(this.groupBox8);
-            this.groupBox7.Location = new System.Drawing.Point(6, 6);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(796, 172);
-            this.groupBox7.TabIndex = 0;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Camera";
-            // 
-            // lvwCameraPos
-            // 
-            this.lvwCameraPos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwCameraPos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colCameraX,
-            this.colCameraY,
-            this.colCameraZ,
-            this.colCameraW});
-            this.lvwCameraPos.FullRowSelect = true;
-            this.lvwCameraPos.HideSelection = false;
-            this.lvwCameraPos.Location = new System.Drawing.Point(6, 74);
-            this.lvwCameraPos.Name = "lvwCameraPos";
-            this.lvwCameraPos.Size = new System.Drawing.Size(784, 92);
-            this.lvwCameraPos.TabIndex = 1;
-            this.lvwCameraPos.UseCompatibleStateImageBehavior = false;
-            this.lvwCameraPos.View = System.Windows.Forms.View.Details;
-            // 
-            // colCameraX
-            // 
-            this.colCameraX.Text = "X";
-            this.colCameraX.Width = 80;
-            // 
-            // colCameraY
-            // 
-            this.colCameraY.Text = "Y";
-            this.colCameraY.Width = 80;
-            // 
-            // colCameraZ
-            // 
-            this.colCameraZ.Text = "Z";
-            this.colCameraZ.Width = 80;
-            // 
-            // colCameraW
-            // 
-            this.colCameraW.Text = "W";
-            this.colCameraW.Width = 80;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.txtDistance);
-            this.groupBox8.Controls.Add(this.lblDistance);
-            this.groupBox8.Controls.Add(this.txtElevation);
-            this.groupBox8.Controls.Add(this.lblElevation);
-            this.groupBox8.Controls.Add(this.txtAngle);
-            this.groupBox8.Controls.Add(this.lblAngle);
-            this.groupBox8.Location = new System.Drawing.Point(6, 19);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(784, 49);
-            this.groupBox8.TabIndex = 0;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Settings";
-            // 
-            // txtDistance
-            // 
-            this.txtDistance.Location = new System.Drawing.Point(379, 19);
-            this.txtDistance.Name = "txtDistance";
-            this.txtDistance.Size = new System.Drawing.Size(100, 20);
-            this.txtDistance.TabIndex = 5;
-            this.txtDistance.Text = "0";
-            // 
-            // lblDistance
-            // 
-            this.lblDistance.AutoSize = true;
-            this.lblDistance.Location = new System.Drawing.Point(321, 22);
-            this.lblDistance.Name = "lblDistance";
-            this.lblDistance.Size = new System.Drawing.Size(52, 13);
-            this.lblDistance.TabIndex = 4;
-            this.lblDistance.Text = "Distance:";
-            // 
-            // txtElevation
-            // 
-            this.txtElevation.Location = new System.Drawing.Point(215, 19);
-            this.txtElevation.Name = "txtElevation";
-            this.txtElevation.Size = new System.Drawing.Size(100, 20);
-            this.txtElevation.TabIndex = 3;
-            this.txtElevation.Text = "0";
-            // 
-            // lblElevation
-            // 
-            this.lblElevation.AutoSize = true;
-            this.lblElevation.Location = new System.Drawing.Point(155, 22);
-            this.lblElevation.Name = "lblElevation";
-            this.lblElevation.Size = new System.Drawing.Size(54, 13);
-            this.lblElevation.TabIndex = 2;
-            this.lblElevation.Text = "Elevation:";
-            // 
-            // txtAngle
-            // 
-            this.txtAngle.Location = new System.Drawing.Point(49, 19);
-            this.txtAngle.Name = "txtAngle";
-            this.txtAngle.Size = new System.Drawing.Size(100, 20);
-            this.txtAngle.TabIndex = 1;
-            this.txtAngle.Text = "0";
-            // 
-            // lblAngle
-            // 
-            this.lblAngle.AutoSize = true;
-            this.lblAngle.Location = new System.Drawing.Point(6, 22);
-            this.lblAngle.Name = "lblAngle";
-            this.lblAngle.Size = new System.Drawing.Size(37, 13);
-            this.lblAngle.TabIndex = 0;
-            this.lblAngle.Text = "Angle:";
             // 
             // groupBox1
             // 
@@ -1389,6 +695,14 @@ namespace SavegameEditor
             this.lblFile.TabIndex = 0;
             this.lblFile.Text = "File Path:";
             // 
+            // UserControl_OtherData
+            // 
+            this.UserControl_OtherData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserControl_OtherData.Location = new System.Drawing.Point(3, 3);
+            this.UserControl_OtherData.Name = "UserControl_OtherData";
+            this.UserControl_OtherData.Size = new System.Drawing.Size(802, 575);
+            this.UserControl_OtherData.TabIndex = 0;
+            // 
             // FrmMain
             // 
             this.AllowDrop = true;
@@ -1425,30 +739,7 @@ namespace SavegameEditor
             this.tabPageMummyInv.ResumeLayout(false);
             this.tabPageCurrentLevel.ResumeLayout(false);
             this.tabPagePlayerData.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.grbxPlayerIndex.ResumeLayout(false);
-            this.grbxPlayerIndex.PerformLayout();
             this.tabPageOthers.ResumeLayout(false);
-            this.tabControlNotes.ResumeLayout(false);
-            this.tabPageSphinx.ResumeLayout(false);
-            this.grbxPropsSphinxInv.ResumeLayout(false);
-            this.grbxPropsSphinxInv.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSphinxActiveNotes)).EndInit();
-            this.tabPageMummy.ResumeLayout(false);
-            this.grbxPropsMummyInv.ResumeLayout(false);
-            this.grbxPropsMummyInv.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMummyActiveNotes)).EndInit();
-            this.grbxSphinx.ResumeLayout(false);
-            this.grbxSphinx.PerformLayout();
-            this.grbxMummy.ResumeLayout(false);
-            this.grbxMummy.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTotalHealthThirds)).EndInit();
@@ -1511,82 +802,17 @@ namespace SavegameEditor
         private System.Windows.Forms.TextBox txtFilePath;
         private System.Windows.Forms.Label lblFile;
         private System.Windows.Forms.TabPage tabPageCurrentLevel;
-        private ListView_ColumnSortingClick lvwCurrentLevelTriggers;
-        private System.Windows.Forms.ColumnHeader colTrigType;
-        private System.Windows.Forms.ColumnHeader ColTrigSubtype;
-        private System.Windows.Forms.ColumnHeader ColSavedStateValue;
-        private System.Windows.Forms.ColumnHeader ColPosX;
-        private System.Windows.Forms.ColumnHeader ColPosY;
-        private System.Windows.Forms.ColumnHeader ColPosZ;
         private System.Windows.Forms.TabPage tabPagePlayerData;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private ListView_ColumnSortingClick lvwTripMummyRot;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private ListView_ColumnSortingClick lvwTripMummyPos;
-        private System.Windows.Forms.ColumnHeader ColMumPosX;
-        private System.Windows.Forms.ColumnHeader ColMumPosY;
-        private System.Windows.Forms.ColumnHeader ColMumPosZ;
-        private System.Windows.Forms.ColumnHeader ColMumPosW;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox grbxPlayerIndex;
-        private System.Windows.Forms.ComboBox cbxPlayerCharacter;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chkMummyCopy2;
-        private System.Windows.Forms.CheckBox chkMummyCopy1;
         private System.Windows.Forms.TabPage tabPageOthers;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private ListView_ColumnSortingClick lvwCameraPos;
-        private System.Windows.Forms.ColumnHeader colCameraX;
-        private System.Windows.Forms.ColumnHeader colCameraY;
-        private System.Windows.Forms.ColumnHeader colCameraZ;
-        private System.Windows.Forms.ColumnHeader colCameraW;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.TextBox txtDistance;
-        private System.Windows.Forms.Label lblDistance;
-        private System.Windows.Forms.TextBox txtElevation;
-        private System.Windows.Forms.Label lblElevation;
-        private System.Windows.Forms.TextBox txtAngle;
-        private System.Windows.Forms.Label lblAngle;
-        private System.Windows.Forms.GroupBox grbxSphinx;
-        private System.Windows.Forms.ComboBox cbxProgSphinxBut3;
-        private System.Windows.Forms.Label lblProgSphinxBut3;
-        private System.Windows.Forms.ComboBox cbxProgSphinxBut2;
-        private System.Windows.Forms.Label lblProgSphinxBut2;
-        private System.Windows.Forms.ComboBox cbxProgSphinxBut1;
-        private System.Windows.Forms.Label lblProgSphinxBut1;
-        private System.Windows.Forms.GroupBox grbxMummy;
-        private System.Windows.Forms.ComboBox cbxProgMumBut3;
-        private System.Windows.Forms.Label lblProgMumBut3;
-        private System.Windows.Forms.ComboBox cbxProgMumBut2;
-        private System.Windows.Forms.Label lblProgMumBut2;
-        private System.Windows.Forms.ComboBox cbxProgMumBut1;
-        private System.Windows.Forms.Label lblProgMumBut1;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_Save;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button Button_Test;
         private System.Windows.Forms.Button btnAutoLOad;
-        private System.Windows.Forms.TabControl tabControlNotes;
-        private System.Windows.Forms.TabPage tabPageSphinx;
-        private System.Windows.Forms.TabPage tabPageMummy;
-        private ListView_ColumnSortingClick lvwNotesMummyInv;
-        private System.Windows.Forms.GroupBox grbxPropsSphinxInv;
-        private System.Windows.Forms.NumericUpDown nudSphinxActiveNotes;
-        private System.Windows.Forms.Label lblSphinxActiveNotes;
-        private ListView_ColumnSortingClick lvwNotesSphinxInv;
-        private System.Windows.Forms.GroupBox grbxPropsMummyInv;
-        private System.Windows.Forms.NumericUpDown nudMummyActiveNotes;
-        private System.Windows.Forms.Label lblMummyActiveNotes;
-        private System.Windows.Forms.ColumnHeader colSphinxNoteTitle;
-        private System.Windows.Forms.ColumnHeader colSphinxNoteDesc;
-        private System.Windows.Forms.ColumnHeader colMummyTitle;
-        private System.Windows.Forms.ColumnHeader colMummyDesc;
         protected internal System.Windows.Forms.ToolStripStatusLabel StatusLabelObjectivesCount;
         protected internal Forms.Panels.UserControl_Objectives UserControl_Objectives;
+        private Forms.Panels.UserControl_LevelTriggers UserControl_LevelTriggers;
+        private Forms.Panels.UserControl_PlayerData userControl_PlayerData1;
+        private Forms.Panels.UserControl_OtherData UserControl_OtherData;
     }
 }
 
