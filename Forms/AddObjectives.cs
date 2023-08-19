@@ -74,7 +74,7 @@ namespace SavegameEditor
                         saveGameData.Objectives.Add(hashcode, (uint)nudObjectiveValue.Value);
                     }
                 }
-                ((FrmMain)Application.OpenForms[nameof(FrmMain)]).PrintObjectives(saveGameData);
+                ((FrmMain)Application.OpenForms[nameof(FrmMain)]).UserControl_Objectives.PrintObjectives(saveGameData);
             }
         }
     }

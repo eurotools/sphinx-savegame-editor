@@ -10,7 +10,7 @@ namespace SavegameEditor
     //-------------------------------------------------------------------------------------------------------------------------------
     public partial class UserControl_BosInventory : UserControl
     {
-        SvInventory currentInventoryData;
+        private SvInventory currentInventoryData;
 
         //-------------------------------------------------------------------------------------------------------------------------------
         public UserControl_BosInventory()

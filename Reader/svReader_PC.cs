@@ -68,9 +68,17 @@ namespace SavegameEditor.Reader
                     binReader.BaseStream.Seek(0xBC28, SeekOrigin.Begin);
                     fileData.player_character_idx = binReader.ReadUInt32();
 
-                    //????????
+                    //Mummy Ability Which
+                    binReader.BaseStream.Seek(0xBC2C, SeekOrigin.Begin);
+                    fileData.mummy_ability_which = ReadMummyAbilityVector(binReader);
+
+                    //Mummy Ability Time Current
+                    binReader.BaseStream.Seek(0xBC38, SeekOrigin.Begin);
+                    fileData.mummy_ability_time_current = ReadMummyAbilityVector(binReader);
+
+                    //Mummy Ability Time Maximum
                     binReader.BaseStream.Seek(0xBC44, SeekOrigin.Begin);
-                    fileData.unknownValue2 = binReader.ReadUInt32();
+                    fileData.mummy_ability_time_maximum = ReadMummyAbilityVector(binReader);
 
                     //Triple mummy
                     binReader.BaseStream.Seek(0xBC50, SeekOrigin.Begin);
@@ -81,15 +89,11 @@ namespace SavegameEditor.Reader
                     ReadCameraSettings(binReader, fileData);
 
                     //Read Programmable buttons
-                    binReader.BaseStream.Seek(0xBCB0, SeekOrigin.Begin);
+                    binReader.BaseStream.Seek(0xBCB4, SeekOrigin.Begin);
                     ReadProgrammableButtons(binReader, fileData.mummy_prog_buttons);
 
-                    binReader.BaseStream.Seek(0xBCC0, SeekOrigin.Begin);
+                    binReader.BaseStream.Seek(0xBCC4, SeekOrigin.Begin);
                     ReadProgrammableButtons(binReader, fileData.sphinx_prog_buttons);
-
-                    //Read unknown value
-                    binReader.BaseStream.Seek(0xBCD0, SeekOrigin.Begin);
-                    fileData.unknownValue = binReader.ReadUInt32();
                 }
                 else
                 {
@@ -223,7 +227,23 @@ namespace SavegameEditor.Reader
             DestArray[0] = binReader.ReadUInt32();
             DestArray[1] = binReader.ReadUInt32();
             DestArray[2] = binReader.ReadUInt32();
-            //DestArray[3] = binReader.ReadUInt32();
+            DestArray[3] = binReader.ReadUInt32();
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------
+        private uint[] ReadMummyAbilityVector(BinaryReader binReader)
+        {
+            uint[] vectorData = new uint[3];
+            for (int i = 0; i < 3; i++)
+            {
+                uint data = binReader.ReadUInt32();
+                if (data != 0xA8A8A8A8)
+                {
+                    vectorData[i] = data;
+                }
+            }
+
+            return vectorData;
         }
     }
 

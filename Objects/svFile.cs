@@ -15,14 +15,15 @@ namespace SavegameEditor.Objects
         internal SvInventory mummy_inventory = new SvInventory();
         internal List<SvTrigger> cur_level_triggers = new List<SvTrigger>();
         internal uint player_character_idx;
+        internal uint[] mummy_ability_which = new uint[3];
+        internal uint[] mummy_ability_time_current = new uint[3];
+        internal uint[] mummy_ability_time_maximum = new uint[3];
         internal uint[] triple_mummy_copies_are_active = new uint[2];
         internal List<SvVectorXYZW> triple_mummy_copies_postition = new List<SvVectorXYZW>();
         internal List<SvVectorXYZW> triple_mummy_copies_rotation = new List<SvVectorXYZW>();
         internal SvCamera cameraSettings = new SvCamera();
         internal uint[] mummy_prog_buttons = new uint[4];
         internal uint[] sphinx_prog_buttons = new uint[4];
-        internal uint unknownValue;
-        internal uint unknownValue2;
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------

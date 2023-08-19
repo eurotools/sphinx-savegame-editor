@@ -59,6 +59,12 @@
     <Compile Include="Forms\AddObjectives.Designer.cs">
       <DependentUpon>AddObjectives.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Panels\UserControl_Objectives.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Panels\UserControl_Objectives.Designer.cs">
+      <DependentUpon>UserControl_Objectives.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="Writer\svWriter_PC.cs" />
     <EmbeddedResource Include="Forms\AddObjectives.resx">
       <DependentUpon>AddObjectives.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Panels\UserControl_Objectives.resx">
+      <DependentUpon>UserControl_Objectives.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

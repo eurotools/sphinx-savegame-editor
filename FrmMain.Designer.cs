@@ -29,7 +29,6 @@ namespace SavegameEditor
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItemOpenFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,10 +37,6 @@ namespace SavegameEditor
             this.MenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ContextMenuObjectives = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItem_DeleteObjective = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItem_ModifyObjectives = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAutoLOad = new System.Windows.Forms.Button();
             this.Button_Test = new System.Windows.Forms.Button();
@@ -67,10 +62,7 @@ namespace SavegameEditor
             this.lblVersion = new System.Windows.Forms.Label();
             this.tabContent = new System.Windows.Forms.TabControl();
             this.tabPageObjectives = new System.Windows.Forms.TabPage();
-            this.lvwObjectives = new SavegameEditor.ListView_ColumnSortingClick();
-            this.colObjLabel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colObjHashCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colObjValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.UserControl_Objectives = new SavegameEditor.Forms.Panels.UserControl_Objectives();
             this.tabPageInventory = new System.Windows.Forms.TabPage();
             this.tabControlInventory = new System.Windows.Forms.TabControl();
             this.tabPageSphinxInv = new System.Windows.Forms.TabPage();
@@ -163,7 +155,6 @@ namespace SavegameEditor
             this.lblFile = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MainMenu.SuspendLayout();
-            this.ContextMenuObjectives.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLevelEntrance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLevelRestart)).BeginInit();
@@ -263,37 +254,6 @@ namespace SavegameEditor
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // ContextMenuObjectives
-            // 
-            this.ContextMenuObjectives.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modifyToolStripMenuItem,
-            this.MenuItem_DeleteObjective,
-            this.MenuItem_ModifyObjectives});
-            this.ContextMenuObjectives.Name = "contextMenuStrip1";
-            this.ContextMenuObjectives.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.ContextMenuObjectives.Size = new System.Drawing.Size(144, 70);
-            // 
-            // modifyToolStripMenuItem
-            // 
-            this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.modifyToolStripMenuItem.Text = "Add";
-            this.modifyToolStripMenuItem.Click += new System.EventHandler(this.MenuItem_AddObjective_Click);
-            // 
-            // MenuItem_DeleteObjective
-            // 
-            this.MenuItem_DeleteObjective.Name = "MenuItem_DeleteObjective";
-            this.MenuItem_DeleteObjective.Size = new System.Drawing.Size(143, 22);
-            this.MenuItem_DeleteObjective.Text = "Delete";
-            this.MenuItem_DeleteObjective.Click += new System.EventHandler(this.MenuItem_DeleteObjective_Click);
-            // 
-            // MenuItem_ModifyObjectives
-            // 
-            this.MenuItem_ModifyObjectives.Name = "MenuItem_ModifyObjectives";
-            this.MenuItem_ModifyObjectives.Size = new System.Drawing.Size(143, 22);
-            this.MenuItem_ModifyObjectives.Text = "Modify Value";
-            this.MenuItem_ModifyObjectives.Click += new System.EventHandler(this.MenuItem_ModifyObjectives_Click);
             // 
             // groupBox2
             // 
@@ -573,7 +533,7 @@ namespace SavegameEditor
             // tabPageObjectives
             // 
             this.tabPageObjectives.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageObjectives.Controls.Add(this.lvwObjectives);
+            this.tabPageObjectives.Controls.Add(this.UserControl_Objectives);
             this.tabPageObjectives.Location = new System.Drawing.Point(4, 22);
             this.tabPageObjectives.Name = "tabPageObjectives";
             this.tabPageObjectives.Padding = new System.Windows.Forms.Padding(3);
@@ -581,38 +541,13 @@ namespace SavegameEditor
             this.tabPageObjectives.TabIndex = 0;
             this.tabPageObjectives.Text = "Objectives";
             // 
-            // lvwObjectives
+            // UserControl_Objectives
             // 
-            this.lvwObjectives.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colObjLabel,
-            this.colObjHashCode,
-            this.colObjValue});
-            this.lvwObjectives.ContextMenuStrip = this.ContextMenuObjectives;
-            this.lvwObjectives.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvwObjectives.FullRowSelect = true;
-            this.lvwObjectives.HideSelection = false;
-            this.lvwObjectives.Location = new System.Drawing.Point(3, 3);
-            this.lvwObjectives.Name = "lvwObjectives";
-            this.lvwObjectives.Size = new System.Drawing.Size(802, 575);
-            this.lvwObjectives.TabIndex = 0;
-            this.lvwObjectives.UseCompatibleStateImageBehavior = false;
-            this.lvwObjectives.View = System.Windows.Forms.View.Details;
-            this.lvwObjectives.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvwObjectives_MouseDoubleClick);
-            // 
-            // colObjLabel
-            // 
-            this.colObjLabel.Text = "Label";
-            this.colObjLabel.Width = 300;
-            // 
-            // colObjHashCode
-            // 
-            this.colObjHashCode.Text = "HashCode";
-            this.colObjHashCode.Width = 90;
-            // 
-            // colObjValue
-            // 
-            this.colObjValue.Text = "Value";
-            this.colObjValue.Width = 90;
+            this.UserControl_Objectives.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserControl_Objectives.Location = new System.Drawing.Point(3, 3);
+            this.UserControl_Objectives.Name = "UserControl_Objectives";
+            this.UserControl_Objectives.Size = new System.Drawing.Size(802, 575);
+            this.UserControl_Objectives.TabIndex = 0;
             // 
             // tabPageInventory
             // 
@@ -1475,7 +1410,6 @@ namespace SavegameEditor
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FrmMain_DragEnter);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
-            this.ContextMenuObjectives.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLevelEntrance)).EndInit();
@@ -1535,18 +1469,10 @@ namespace SavegameEditor
         private System.Windows.Forms.ToolStripMenuItem MenuItemExit;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private ListView_ColumnSortingClick lvwObjectives;
-        private System.Windows.Forms.ColumnHeader colObjLabel;
-        private System.Windows.Forms.ColumnHeader colObjHashCode;
-        private System.Windows.Forms.ColumnHeader colObjValue;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TabControl tabContent;
         private System.Windows.Forms.TabPage tabPageObjectives;
         private System.Windows.Forms.TabPage tabPageInventory;
-        private System.Windows.Forms.ContextMenuStrip ContextMenuObjectives;
-        private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MenuItem_DeleteObjective;
-        private System.Windows.Forms.ToolStripMenuItem MenuItem_ModifyObjectives;
         private System.Windows.Forms.TabPage tabPageSphinxInv;
         private System.Windows.Forms.TabPage tabPageMummyInv;
         private System.Windows.Forms.TextBox txtGameTime;
@@ -1575,7 +1501,6 @@ namespace SavegameEditor
         private System.Windows.Forms.NumericUpDown nudHealthThirds;
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabelPlatform;
-        private System.Windows.Forms.ToolStripStatusLabel StatusLabelObjectivesCount;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabelSphinxItems;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabelMummyItems;
         private UserControl_BosInventory SphinxInventory;
@@ -1660,6 +1585,8 @@ namespace SavegameEditor
         private System.Windows.Forms.ColumnHeader colSphinxNoteDesc;
         private System.Windows.Forms.ColumnHeader colMummyTitle;
         private System.Windows.Forms.ColumnHeader colMummyDesc;
+        protected internal System.Windows.Forms.ToolStripStatusLabel StatusLabelObjectivesCount;
+        protected internal Forms.Panels.UserControl_Objectives UserControl_Objectives;
     }
 }
 

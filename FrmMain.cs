@@ -216,51 +216,6 @@ namespace SavegameEditor
         }
 
         //*===============================================================================================
-        //* LIST VIEW OBJECTVIES
-        //*===============================================================================================
-        private void LvwObjectives_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (lvwObjectives.Items.Count > 0)
-            {
-                using (ObjectiveProperties objPropsForm = new ObjectiveProperties(lvwObjectives.SelectedItems))
-                {
-                    objPropsForm.ShowDialog();
-                }
-            }
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------
-        private void MenuItem_AddObjective_Click(object sender, EventArgs e)
-        {
-            using (AddObjectives addObjForm = new AddObjectives())
-            {
-                addObjForm.ShowDialog();
-            }
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------
-        private void MenuItem_DeleteObjective_Click(object sender, EventArgs e)
-        {
-            lvwObjectives.BeginUpdate();
-            foreach (ListViewItem itemToDelete in lvwObjectives.SelectedItems)
-            {
-                fileData.Objectives.Remove((uint)itemToDelete.Tag);
-                itemToDelete.Remove();
-            }
-            lvwObjectives.EndUpdate();
-            StatusLabelObjectivesCount.Text = string.Format("Objectives Count: {0}", lvwObjectives.Items.Count);
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------
-        private void MenuItem_ModifyObjectives_Click(object sender, EventArgs e)
-        {
-            using (ObjectiveProperties objProps = new ObjectiveProperties(lvwObjectives.SelectedItems))
-            {
-                objProps.ShowDialog();
-            }
-        }
-
-        //*===============================================================================================
         //* SECONDARY HEADER - FORM EVENTS
         //*===============================================================================================
         private void NudHealthThirds_MouseClick(object sender, MouseEventArgs e)
@@ -283,53 +238,6 @@ namespace SavegameEditor
         //*===============================================================================================
         //* PRINT DATA METHODS
         //*===============================================================================================
-        internal void PrintObjectives(SvFile savegameData)
-        {
-            Dictionary<uint, string> HashTable = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h");
-
-            lvwObjectives.BeginUpdate();
-
-            //Clear control if required
-            if (lvwObjectives.Items.Count > 0)
-            {
-                lvwObjectives.Items.Clear();
-            }
-
-            //Add data
-            foreach (KeyValuePair<uint, uint> objective in savegameData.Objectives)
-            {
-                //Get Hashcode Label
-                string hashcodeLabel = "**HASHCODE NOT FOUND**";
-                if (HashTable.ContainsKey(objective.Key))
-                {
-                    hashcodeLabel = HashTable[objective.Key];
-                }
-
-                //Check value is a hashcode
-                string valueHashCode = objective.Value.ToString();
-                if ((objective.Value & 0xFFFF0000) > 0)
-                {
-                    valueHashCode = "**HASHCODE NOT FOUND**";
-                    if (HashTable.ContainsKey(objective.Value))
-                    {
-                        valueHashCode = HashTable[objective.Value];
-                    }
-                }
-
-                //Add new item
-                ListViewItem itemData = new ListViewItem(new[] { hashcodeLabel, "0x" + objective.Key.ToString("X8"), valueHashCode })
-                {
-                    Tag = objective.Key
-                };
-                lvwObjectives.Items.Add(itemData);
-            }
-            lvwObjectives.EndUpdate();
-
-            //Update label
-            StatusLabelObjectivesCount.Text = string.Format("Objectives Count: {0}", lvwObjectives.Items.Count);
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------
         internal void PrintHeader(SvFile savegameData)
         {
             Dictionary<uint, string> HashTable = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_File");
@@ -449,7 +357,7 @@ namespace SavegameEditor
             chkMummyCopy2.Checked = fileData.triple_mummy_copies_are_active[1] == 1;
 
             //Print position
-            foreach(SvVectorXYZW playerPos in fileData.triple_mummy_copies_postition)
+            foreach (SvVectorXYZW playerPos in fileData.triple_mummy_copies_postition)
             {
                 lvwTripMummyPos.Items.Add(new ListViewItem(new[] { playerPos.X.ToString(), playerPos.Y.ToString(), playerPos.Z.ToString(), playerPos.W.ToString() }));
             }
@@ -468,7 +376,7 @@ namespace SavegameEditor
 
             //Sphinx
             nudSphinxActiveNotes.Value = fileData.headerData.ActiveNotesSphinx;
-            foreach(KeyValuePair<uint, uint> sphinxNote in fileData.headerData.notes_sphinx)
+            foreach (KeyValuePair<uint, uint> sphinxNote in fileData.headerData.notes_sphinx)
             {
                 lvwNotesSphinxInv.Items.Add(new ListViewItem(new[] { fileSection[sphinxNote.Key], fileSection[sphinxNote.Value] }));
             }
@@ -492,7 +400,7 @@ namespace SavegameEditor
                 txtFilePath.Text = filePath;
 
                 //Show data
-                PrintObjectives(fileData);
+                UserControl_Objectives.PrintObjectives(fileData);
                 PrintHeader(fileData);
                 PrintSecondaryHeader(fileData);
                 SphinxInventory.LoadInventory(fileData.sphinx_inventory);
@@ -504,10 +412,10 @@ namespace SavegameEditor
                 PrintPlayerData(fileData);
                 PrintInventoryNotes(fileData);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }            
+            }
         }
 
         //*===============================================================================================

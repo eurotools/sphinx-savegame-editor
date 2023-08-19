@@ -43,7 +43,6 @@ namespace SavegameEditor
             this.MenuItem_AddItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_RemoveItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_ModifyItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItem_SetFlags = new System.Windows.Forms.ToolStripMenuItem();
             this.grbxSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSelectedItem)).BeginInit();
             this.ContextMenuOptions.SuspendLayout();
@@ -136,36 +135,31 @@ namespace SavegameEditor
             this.ContextMenuOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItem_AddItem,
             this.MenuItem_RemoveItem,
-            this.MenuItem_ModifyItem,
-            this.MenuItem_SetFlags});
+            this.MenuItem_ModifyItem});
             this.ContextMenuOptions.Name = "ContextMenuOptions";
             this.ContextMenuOptions.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.ContextMenuOptions.Size = new System.Drawing.Size(121, 92);
+            this.ContextMenuOptions.Size = new System.Drawing.Size(181, 92);
             // 
             // MenuItem_AddItem
             // 
             this.MenuItem_AddItem.Name = "MenuItem_AddItem";
-            this.MenuItem_AddItem.Size = new System.Drawing.Size(120, 22);
+            this.MenuItem_AddItem.Size = new System.Drawing.Size(180, 22);
             this.MenuItem_AddItem.Text = "Add";
+            this.MenuItem_AddItem.Click += new System.EventHandler(this.MenuItem_AddItem_Click);
             // 
             // MenuItem_RemoveItem
             // 
             this.MenuItem_RemoveItem.Name = "MenuItem_RemoveItem";
-            this.MenuItem_RemoveItem.Size = new System.Drawing.Size(120, 22);
+            this.MenuItem_RemoveItem.Size = new System.Drawing.Size(180, 22);
             this.MenuItem_RemoveItem.Text = "Remove";
+            this.MenuItem_RemoveItem.Click += new System.EventHandler(this.MenuItem_RemoveItem_Click);
             // 
             // MenuItem_ModifyItem
             // 
             this.MenuItem_ModifyItem.Name = "MenuItem_ModifyItem";
-            this.MenuItem_ModifyItem.Size = new System.Drawing.Size(120, 22);
+            this.MenuItem_ModifyItem.Size = new System.Drawing.Size(180, 22);
             this.MenuItem_ModifyItem.Text = "Modify";
             this.MenuItem_ModifyItem.Click += new System.EventHandler(this.MenuItem_ModifyItem_Click);
-            // 
-            // MenuItem_SetFlags
-            // 
-            this.MenuItem_SetFlags.Name = "MenuItem_SetFlags";
-            this.MenuItem_SetFlags.Size = new System.Drawing.Size(120, 22);
-            this.MenuItem_SetFlags.Text = "Set Flags";
             // 
             // UserControlItemCycle
             // 
@@ -198,6 +192,5 @@ namespace SavegameEditor
         private System.Windows.Forms.ToolStripMenuItem MenuItem_AddItem;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_RemoveItem;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_ModifyItem;
-        private System.Windows.Forms.ToolStripMenuItem MenuItem_SetFlags;
     }
 }

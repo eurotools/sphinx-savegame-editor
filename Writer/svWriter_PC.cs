@@ -73,15 +73,15 @@ namespace SavegameEditor
                     //Active player
                     WriteAlignedDecoration(binWriter, (uint)(binWriter.BaseStream.Position + (0xBC28 - binWriter.BaseStream.Position)));
                     binWriter.Write(fileData.player_character_idx);
-                    binWriter.Write(0);
 
-                    //??????????
-                    WriteAlignedDecoration(binWriter, (uint)(binWriter.BaseStream.Position + (0xBC38 - binWriter.BaseStream.Position)));
-                    binWriter.Write(0);
+                    //Mummy Ability Which
+                    WriteMummyAbilityVector(binWriter, fileData.triple_mummy_copies_are_active, fileData.mummy_ability_which);
 
-                    //??????????
-                    WriteAlignedDecoration(binWriter, (uint)(binWriter.BaseStream.Position + (0xBC44 - binWriter.BaseStream.Position)));
-                    binWriter.Write(fileData.unknownValue2);
+                    //Mummy Ability Time Current
+                    WriteMummyAbilityVector(binWriter, fileData.triple_mummy_copies_are_active, fileData.mummy_ability_time_current);
+
+                    //Mummy Ability Which
+                    WriteMummyAbilityVector(binWriter, fileData.triple_mummy_copies_are_active, fileData.mummy_ability_time_maximum);
 
                     //Triple mummy
                     WriteAlignedDecoration(binWriter, (uint)(binWriter.BaseStream.Position + (0xBC50 - binWriter.BaseStream.Position)));
@@ -93,10 +93,6 @@ namespace SavegameEditor
                     //Write Programmable buttons
                     WriteProgrammableButtons(binWriter, fileData.mummy_prog_buttons);
                     WriteProgrammableButtons(binWriter, fileData.sphinx_prog_buttons);
-
-                    //???????????????
-                    binWriter.Write(0);
-                    binWriter.Write(fileData.unknownValue);
 
                     //CRC32
                     WriteAlignedDecoration(binWriter, AlignNumber((uint)binWriter.BaseStream.Position, 8));
@@ -252,6 +248,23 @@ namespace SavegameEditor
             binWriter.Write(array[0]);
             binWriter.Write(array[1]);
             binWriter.Write(array[2]);
+            binWriter.Write(array[3]);
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------
+        private void WriteMummyAbilityVector(BinaryWriter binWriter, uint[] tripleMummyCopies, uint[] arrayToWrite)
+        {
+            for (int i = 0; i < arrayToWrite.Length; i++)
+            {
+                if (i > 0 && tripleMummyCopies[i - 1] == 0)
+                {
+                    binWriter.Write(0xA8A8A8A8);
+                }
+                else
+                {
+                    binWriter.Write(arrayToWrite[i]);
+                }
+            }
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
