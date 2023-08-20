@@ -162,11 +162,13 @@ namespace SavegameEditor.Forms.Panels
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.chkMummyCopy2);
             this.groupBox4.Controls.Add(this.chkMummyCopy1);
             this.groupBox4.Location = new System.Drawing.Point(6, 19);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(784, 43);
+            this.groupBox4.Size = new System.Drawing.Size(847, 43);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Active Copies?";
@@ -193,6 +195,8 @@ namespace SavegameEditor.Forms.Panels
             // 
             // grbxPlayerIndex
             // 
+            this.grbxPlayerIndex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grbxPlayerIndex.Controls.Add(this.cbxPlayerCharacter);
             this.grbxPlayerIndex.Controls.Add(this.label1);
             this.grbxPlayerIndex.Location = new System.Drawing.Point(3, 3);

@@ -157,7 +157,7 @@ namespace SavegameEditor.Reader
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
-        private void ReadTriggers(BinaryReader binReader, List<SvTrigger> triggersList)
+        private void ReadTriggers(BinaryReader binReader, Dictionary<uint, SvTrigger> triggersList)
         {
             uint triggersCount = binReader.ReadUInt32();
             for (int i = 0; i < triggersCount; i++)
@@ -171,7 +171,7 @@ namespace SavegameEditor.Reader
                 triggerData.vector_xyz.X = binReader.ReadSingle();
                 triggerData.vector_xyz.Y = binReader.ReadSingle();
                 triggerData.vector_xyz.Z = binReader.ReadSingle();
-                triggersList.Add(triggerData);
+                triggersList.Add((uint)i, triggerData);
             }
         }
 

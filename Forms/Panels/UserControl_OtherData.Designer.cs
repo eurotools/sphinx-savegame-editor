@@ -431,6 +431,8 @@ namespace SavegameEditor.Forms.Panels
             // 
             // groupBox8
             // 
+            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox8.Controls.Add(this.txtDistance);
             this.groupBox8.Controls.Add(this.lblDistance);
             this.groupBox8.Controls.Add(this.txtElevation);

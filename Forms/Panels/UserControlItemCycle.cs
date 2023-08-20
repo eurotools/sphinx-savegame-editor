@@ -22,7 +22,7 @@ namespace SavegameEditor
         {
             if (lvwCycle.SelectedItems.Count > 0)
             {
-                using (ItemProperties itemPropsForm = new ItemProperties(lvwCycle.SelectedItems, (int)Tag))
+                using (ItemProperties itemPropsForm = new ItemProperties(lvwCycle, (int)Tag))
                 {
                     itemPropsForm.ShowDialog();
                 }
@@ -32,7 +32,13 @@ namespace SavegameEditor
         //-------------------------------------------------------------------------------------------------------------------------------
         private void MenuItem_AddItem_Click(object sender, System.EventArgs e)
         {
-
+            if (saveGameData != null)
+            {
+                using (ItemProperties itemPropsForm = new ItemProperties(lvwCycle, (int)Tag, true))
+                {
+                    itemPropsForm.ShowDialog();
+                }
+            }
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
@@ -61,7 +67,7 @@ namespace SavegameEditor
         {
             if (lvwCycle.SelectedItems.Count > 0)
             {
-                using (ItemProperties itemPropsForm = new ItemProperties(lvwCycle.SelectedItems, (int)Tag))
+                using (ItemProperties itemPropsForm = new ItemProperties(lvwCycle, (int)Tag))
                 {
                     itemPropsForm.ShowDialog();
                 }

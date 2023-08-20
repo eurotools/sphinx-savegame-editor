@@ -62,17 +62,12 @@ namespace SavegameEditor
             this.lblVersion = new System.Windows.Forms.Label();
             this.tabContent = new System.Windows.Forms.TabControl();
             this.tabPageObjectives = new System.Windows.Forms.TabPage();
-            this.UserControl_Objectives = new SavegameEditor.Forms.Panels.UserControl_Objectives();
             this.tabPageInventory = new System.Windows.Forms.TabPage();
             this.tabControlInventory = new System.Windows.Forms.TabControl();
             this.tabPageSphinxInv = new System.Windows.Forms.TabPage();
-            this.SphinxInventory = new SavegameEditor.UserControl_BosInventory();
             this.tabPageMummyInv = new System.Windows.Forms.TabPage();
-            this.MummyInventory = new SavegameEditor.UserControl_BosInventory();
             this.tabPageCurrentLevel = new System.Windows.Forms.TabPage();
-            this.UserControl_LevelTriggers = new SavegameEditor.Forms.Panels.UserControl_LevelTriggers();
             this.tabPagePlayerData = new System.Windows.Forms.TabPage();
-            this.userControl_PlayerData1 = new SavegameEditor.Forms.Panels.UserControl_PlayerData();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nudTotalHealthThirds = new System.Windows.Forms.NumericUpDown();
@@ -88,6 +83,11 @@ namespace SavegameEditor
             this.txtFilePath = new System.Windows.Forms.TextBox();
             this.lblFile = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.UserControl_Objectives = new SavegameEditor.Forms.Panels.UserControl_Objectives();
+            this.SphinxInventory = new SavegameEditor.UserControl_BosInventory();
+            this.MummyInventory = new SavegameEditor.UserControl_BosInventory();
+            this.UserControl_LevelTriggers = new SavegameEditor.Forms.Panels.UserControl_LevelTriggers();
+            this.userControl_PlayerData1 = new SavegameEditor.Forms.Panels.UserControl_PlayerData();
             this.UserControl_OtherData = new SavegameEditor.Forms.Panels.UserControl_OtherData();
             this.MainMenu.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -460,14 +460,6 @@ namespace SavegameEditor
             this.tabPageObjectives.TabIndex = 0;
             this.tabPageObjectives.Text = "Objectives";
             // 
-            // UserControl_Objectives
-            // 
-            this.UserControl_Objectives.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserControl_Objectives.Location = new System.Drawing.Point(3, 3);
-            this.UserControl_Objectives.Name = "UserControl_Objectives";
-            this.UserControl_Objectives.Size = new System.Drawing.Size(802, 575);
-            this.UserControl_Objectives.TabIndex = 0;
-            // 
             // tabPageInventory
             // 
             this.tabPageInventory.BackColor = System.Drawing.SystemColors.Control;
@@ -501,14 +493,6 @@ namespace SavegameEditor
             this.tabPageSphinxInv.TabIndex = 0;
             this.tabPageSphinxInv.Text = "Sphinx";
             // 
-            // SphinxInventory
-            // 
-            this.SphinxInventory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SphinxInventory.Location = new System.Drawing.Point(3, 3);
-            this.SphinxInventory.Name = "SphinxInventory";
-            this.SphinxInventory.Size = new System.Drawing.Size(788, 543);
-            this.SphinxInventory.TabIndex = 0;
-            // 
             // tabPageMummyInv
             // 
             this.tabPageMummyInv.BackColor = System.Drawing.SystemColors.Control;
@@ -519,14 +503,6 @@ namespace SavegameEditor
             this.tabPageMummyInv.Size = new System.Drawing.Size(794, 549);
             this.tabPageMummyInv.TabIndex = 1;
             this.tabPageMummyInv.Text = "Mummy";
-            // 
-            // MummyInventory
-            // 
-            this.MummyInventory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MummyInventory.Location = new System.Drawing.Point(3, 3);
-            this.MummyInventory.Name = "MummyInventory";
-            this.MummyInventory.Size = new System.Drawing.Size(788, 543);
-            this.MummyInventory.TabIndex = 0;
             // 
             // tabPageCurrentLevel
             // 
@@ -539,14 +515,6 @@ namespace SavegameEditor
             this.tabPageCurrentLevel.TabIndex = 2;
             this.tabPageCurrentLevel.Text = "Current Level";
             // 
-            // UserControl_LevelTriggers
-            // 
-            this.UserControl_LevelTriggers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserControl_LevelTriggers.Location = new System.Drawing.Point(3, 3);
-            this.UserControl_LevelTriggers.Name = "UserControl_LevelTriggers";
-            this.UserControl_LevelTriggers.Size = new System.Drawing.Size(802, 575);
-            this.UserControl_LevelTriggers.TabIndex = 0;
-            // 
             // tabPagePlayerData
             // 
             this.tabPagePlayerData.BackColor = System.Drawing.SystemColors.Control;
@@ -557,14 +525,6 @@ namespace SavegameEditor
             this.tabPagePlayerData.Size = new System.Drawing.Size(808, 581);
             this.tabPagePlayerData.TabIndex = 3;
             this.tabPagePlayerData.Text = "Player Data";
-            // 
-            // userControl_PlayerData1
-            // 
-            this.userControl_PlayerData1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_PlayerData1.Location = new System.Drawing.Point(3, 3);
-            this.userControl_PlayerData1.Name = "userControl_PlayerData1";
-            this.userControl_PlayerData1.Size = new System.Drawing.Size(802, 575);
-            this.userControl_PlayerData1.TabIndex = 0;
             // 
             // tabPageOthers
             // 
@@ -694,6 +654,46 @@ namespace SavegameEditor
             this.lblFile.Size = new System.Drawing.Size(51, 13);
             this.lblFile.TabIndex = 0;
             this.lblFile.Text = "File Path:";
+            // 
+            // UserControl_Objectives
+            // 
+            this.UserControl_Objectives.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserControl_Objectives.Location = new System.Drawing.Point(3, 3);
+            this.UserControl_Objectives.Name = "UserControl_Objectives";
+            this.UserControl_Objectives.Size = new System.Drawing.Size(802, 575);
+            this.UserControl_Objectives.TabIndex = 0;
+            // 
+            // SphinxInventory
+            // 
+            this.SphinxInventory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SphinxInventory.Location = new System.Drawing.Point(3, 3);
+            this.SphinxInventory.Name = "SphinxInventory";
+            this.SphinxInventory.Size = new System.Drawing.Size(788, 543);
+            this.SphinxInventory.TabIndex = 0;
+            // 
+            // MummyInventory
+            // 
+            this.MummyInventory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MummyInventory.Location = new System.Drawing.Point(3, 3);
+            this.MummyInventory.Name = "MummyInventory";
+            this.MummyInventory.Size = new System.Drawing.Size(788, 543);
+            this.MummyInventory.TabIndex = 0;
+            // 
+            // UserControl_LevelTriggers
+            // 
+            this.UserControl_LevelTriggers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserControl_LevelTriggers.Location = new System.Drawing.Point(3, 3);
+            this.UserControl_LevelTriggers.Name = "UserControl_LevelTriggers";
+            this.UserControl_LevelTriggers.Size = new System.Drawing.Size(802, 575);
+            this.UserControl_LevelTriggers.TabIndex = 0;
+            // 
+            // userControl_PlayerData1
+            // 
+            this.userControl_PlayerData1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl_PlayerData1.Location = new System.Drawing.Point(3, 3);
+            this.userControl_PlayerData1.Name = "userControl_PlayerData1";
+            this.userControl_PlayerData1.Size = new System.Drawing.Size(802, 575);
+            this.userControl_PlayerData1.TabIndex = 0;
             // 
             // UserControl_OtherData
             // 

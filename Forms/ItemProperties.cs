@@ -1,5 +1,8 @@
 ﻿using SavegameEditor.Objects;
+using SavegameEditor.Reader;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SavegameEditor
@@ -9,24 +12,39 @@ namespace SavegameEditor
     //-------------------------------------------------------------------------------------------------------------------------------
     public partial class ItemProperties : Form
     {
-        private bool dataModified;
+        private readonly bool NewItemMode = false;
         private readonly int SelectedCycle;
-        private readonly ListView.SelectedListViewItemCollection objectivesCollection;
+        private readonly ListView itemsListView;
         private readonly SvFile saveGameData = ((FrmMain)Application.OpenForms[nameof(FrmMain)]).fileData;
+        private bool dataModified;
         private SvInventory inventoryData;
+        private SvInvItem itemData = new SvInvItem();
+        private Dictionary<uint, string> HashTable;
         private bool UserClick = true;
 
         //-------------------------------------------------------------------------------------------------------------------------------
-        public ItemProperties(ListView.SelectedListViewItemCollection selectedObjectives, int cycleSelected)
+        public ItemProperties(ListView selectedObjectives, int cycleSelected, bool AddNewItem = false)
         {
             InitializeComponent();
-            objectivesCollection = selectedObjectives;
+            itemsListView = selectedObjectives;
             SelectedCycle = cycleSelected;
+            NewItemMode = AddNewItem;
+
+            cbxHashcode.Visible = AddNewItem;
+            txtHashCodeLabel.Visible = !AddNewItem;
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
         private void ItemProperties_Load(object sender, EventArgs e)
         {
+            //Add hashcodes to combobox if required
+            if (NewItemMode)
+            {
+                HashTable = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_Item", "HT_File");
+                cbxHashcode.Items.AddRange(HashTable.Values.ToArray());
+                cbxHashcode.SelectedIndex = 0;
+            }
+
             //Get Inventory Data
             inventoryData = saveGameData.sphinx_inventory;
             int selectedInventory = ((FrmMain)Application.OpenForms[nameof(FrmMain)]).tabControlInventory.SelectedIndex;
@@ -36,12 +54,15 @@ namespace SavegameEditor
             }
 
             //Set item data
-            SvInvItem itemData = inventoryData.item_cycles[SelectedCycle].items[(uint)objectivesCollection[0].Tag];
-            if (objectivesCollection.Count > 1)
+            if (!NewItemMode)
+            {
+                itemData = inventoryData.item_cycles[SelectedCycle].items[(uint)itemsListView.SelectedItems[0].Tag];
+            }
+            if (itemsListView.SelectedItems.Count > 1)
             {
                 Text = "Set Multiple Item Properties";
                 txtHashCodeLabel.Text = "<Multiple Items>";
-                foreach (ListViewItem objItem in objectivesCollection)
+                foreach (ListViewItem objItem in itemsListView.SelectedItems)
                 {
                     itemData = saveGameData.sphinx_inventory.item_cycles[SelectedCycle].items[(uint)objItem.Tag];
                     SetFlags(itemData.flags, CheckState.Indeterminate);
@@ -49,7 +70,14 @@ namespace SavegameEditor
             }
             else
             {
-                txtHashCodeLabel.Text = objectivesCollection[0].Text;
+                if (NewItemMode)
+                {
+                    Text = "New item";
+                }
+                else
+                {
+                    txtHashCodeLabel.Text = itemsListView.SelectedItems[0].Text;
+                }
                 SetFlags(itemData.flags, CheckState.Checked);
             }
 
@@ -63,7 +91,7 @@ namespace SavegameEditor
         private void ItemProperties_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Ask for confirmation
-            if (DialogResult == DialogResult.Cancel && dataModified)
+            if (DialogResult == DialogResult.Cancel && (dataModified || NewItemMode))
             {
                 DialogResult answer = MessageBox.Show("Are you sure you want to close without saving?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (answer == DialogResult.No)
@@ -73,21 +101,40 @@ namespace SavegameEditor
             }
             else
             {
-                //Update UI & Dictionary
-                foreach (ListViewItem objItem in objectivesCollection)
+                if (NewItemMode)
                 {
-                    SvInvItem itemData = inventoryData.item_cycles[SelectedCycle].items[(uint)objItem.Tag];
-                    uint flags = GetFlags(itemData.flags);
-
-                    //Update UI
-                    objItem.SubItems[2].Text = nudCurrentAmount.Value.ToString();
-                    objItem.SubItems[3].Text = nudMaxAmount.Value.ToString();
-                    objItem.SubItems[4].Text = flags.ToString();
-
-                    //Update object
+                    uint itemHashCode = HashTable.FirstOrDefault(x => x.Value.Equals(cbxHashcode.SelectedItem.ToString())).Key;
                     itemData.count_cur = (int)nudCurrentAmount.Value;
                     itemData.count_max = (int)nudMaxAmount.Value;
-                    itemData.flags = flags;
+                    itemData.flags = GetFlags(itemData.flags);
+                    itemData.hashcode = itemHashCode;
+
+                    //Add item to listview and dictionary
+                    inventoryData.item_cycles[SelectedCycle].items.Add(itemHashCode, itemData);
+                    ListViewItem listItem = new ListViewItem(new[] { cbxHashcode.SelectedItem.ToString(), "0x" + itemData.hashcode.ToString("X8"), itemData.count_cur.ToString(), itemData.count_max.ToString(), itemData.flags.ToString() })
+                    {
+                        Tag = itemData.hashcode
+                    };
+                    itemsListView.Items.Add(listItem);
+                }
+                else
+                {
+                    //Update UI & Dictionary
+                    foreach (ListViewItem objItem in itemsListView.SelectedItems)
+                    {
+                        itemData = inventoryData.item_cycles[SelectedCycle].items[(uint)objItem.Tag];
+                        uint flags = GetFlags(itemData.flags);
+
+                        //Update UI
+                        objItem.SubItems[2].Text = nudCurrentAmount.Value.ToString();
+                        objItem.SubItems[3].Text = nudMaxAmount.Value.ToString();
+                        objItem.SubItems[4].Text = flags.ToString();
+
+                        //Update object
+                        itemData.count_cur = (int)nudCurrentAmount.Value;
+                        itemData.count_max = (int)nudMaxAmount.Value;
+                        itemData.flags = flags;
+                    }
                 }
             }
         }

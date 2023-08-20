@@ -39,6 +39,7 @@ namespace SavegameEditor
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.cbxHashcode = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCurrentAmount)).BeginInit();
@@ -197,6 +198,15 @@ namespace SavegameEditor
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
+            // cbxHashcode
+            // 
+            this.cbxHashcode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxHashcode.FormattingEnabled = true;
+            this.cbxHashcode.Location = new System.Drawing.Point(12, 11);
+            this.cbxHashcode.Name = "cbxHashcode";
+            this.cbxHashcode.Size = new System.Drawing.Size(227, 21);
+            this.cbxHashcode.TabIndex = 7;
+            // 
             // ItemProperties
             // 
             this.AcceptButton = this.buttonOK;
@@ -204,6 +214,7 @@ namespace SavegameEditor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(529, 298);
+            this.Controls.Add(this.cbxHashcode);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.groupBox2);
@@ -240,5 +251,6 @@ namespace SavegameEditor
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.ComboBox cbxHashcode;
     }
 }

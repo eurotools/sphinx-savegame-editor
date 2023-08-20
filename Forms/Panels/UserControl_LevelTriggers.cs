@@ -1,4 +1,5 @@
 ﻿using SavegameEditor.Objects;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SavegameEditor.Forms.Panels
@@ -14,6 +15,7 @@ namespace SavegameEditor.Forms.Panels
         public UserControl_LevelTriggers()
         {
             InitializeComponent();
+
         }
 
         //*===============================================================================================
@@ -31,11 +33,62 @@ namespace SavegameEditor.Forms.Panels
 
             //Add Data
             lvwCurrentLevelTriggers.BeginUpdate();
-            foreach (var triggerData in savegameData.cur_level_triggers)
+            foreach (KeyValuePair<uint, SvTrigger> triggerData in savegameData.cur_level_triggers)
             {
-                lvwCurrentLevelTriggers.Items.Add(new ListViewItem(new[] { triggerData.trig_type.ToString(), triggerData.trig_subtype.ToString(), triggerData.saved_state_value.ToString(), triggerData.vector_xyz.X.ToString(), triggerData.vector_xyz.Y.ToString(), triggerData.vector_xyz.Z.ToString() }));
+                ListViewItem itemData = new ListViewItem(new[] { triggerData.Value.trig_type.ToString(), triggerData.Value.trig_subtype.ToString(), triggerData.Value.saved_state_value.ToString(), triggerData.Value.vector_xyz.X.ToString(), triggerData.Value.vector_xyz.Y.ToString(), triggerData.Value.vector_xyz.Z.ToString() })
+                {
+                    Tag = triggerData.Key
+                };
+                lvwCurrentLevelTriggers.Items.Add(itemData);
             }
             lvwCurrentLevelTriggers.EndUpdate();
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------
+        private void LvwCurrentLevelTriggers_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (lvwCurrentLevelTriggers.SelectedItems.Count > 0)
+            {
+                using (TriggerProperties objPropsForm = new TriggerProperties(lvwCurrentLevelTriggers, false))
+                {
+                    objPropsForm.ShowDialog();
+                }
+            }
+        }
+
+        //*===============================================================================================
+        //* CONTEXT MENU
+        //*===============================================================================================
+        private void MenuItem_Add_Click(object sender, System.EventArgs e)
+        {
+            if (fileData != null)
+            {
+                using (TriggerProperties trigProps = new TriggerProperties(lvwCurrentLevelTriggers, true))
+                {
+                    trigProps.ShowDialog();
+                }
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------
+        private void MenuItem_Modify_Click(object sender, System.EventArgs e)
+        {
+            if (lvwCurrentLevelTriggers.SelectedItems.Count > 0)
+            {
+                using (TriggerProperties trigProps = new TriggerProperties(lvwCurrentLevelTriggers, false))
+                {
+                    trigProps.ShowDialog();
+                }
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------
+        private void MenuItem_Remove_Click(object sender, System.EventArgs e)
+        {
+            foreach (ListViewItem itemToRemove in lvwCurrentLevelTriggers.SelectedItems)
+            {
+                fileData.cur_level_triggers.Remove((uint)itemToRemove.Tag);
+            }
         }
     }
 

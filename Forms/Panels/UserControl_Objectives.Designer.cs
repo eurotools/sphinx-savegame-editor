@@ -53,7 +53,7 @@ namespace SavegameEditor.Forms.Panels
             this.lvwObjectives.HideSelection = false;
             this.lvwObjectives.Location = new System.Drawing.Point(0, 0);
             this.lvwObjectives.Name = "lvwObjectives";
-            this.lvwObjectives.Size = new System.Drawing.Size(783, 404);
+            this.lvwObjectives.Size = new System.Drawing.Size(629, 412);
             this.lvwObjectives.TabIndex = 1;
             this.lvwObjectives.UseCompatibleStateImageBehavior = false;
             this.lvwObjectives.View = System.Windows.Forms.View.Details;
@@ -111,7 +111,7 @@ namespace SavegameEditor.Forms.Panels
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lvwObjectives);
             this.Name = "UserControl_Objectives";
-            this.Size = new System.Drawing.Size(783, 404);
+            this.Size = new System.Drawing.Size(629, 412);
             this.ContextMenuObjectives.ResumeLayout(false);
             this.ResumeLayout(false);
 

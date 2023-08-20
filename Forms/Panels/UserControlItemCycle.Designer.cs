@@ -97,9 +97,9 @@ namespace SavegameEditor
             this.lvwCycle.ContextMenuStrip = this.ContextMenuOptions;
             this.lvwCycle.FullRowSelect = true;
             this.lvwCycle.HideSelection = false;
-            this.lvwCycle.Location = new System.Drawing.Point(3, 59);
+            this.lvwCycle.Location = new System.Drawing.Point(0, 59);
             this.lvwCycle.Name = "lvwCycle";
-            this.lvwCycle.Size = new System.Drawing.Size(546, 408);
+            this.lvwCycle.Size = new System.Drawing.Size(552, 411);
             this.lvwCycle.TabIndex = 1;
             this.lvwCycle.UseCompatibleStateImageBehavior = false;
             this.lvwCycle.View = System.Windows.Forms.View.Details;
@@ -138,26 +138,26 @@ namespace SavegameEditor
             this.MenuItem_ModifyItem});
             this.ContextMenuOptions.Name = "ContextMenuOptions";
             this.ContextMenuOptions.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.ContextMenuOptions.Size = new System.Drawing.Size(181, 92);
+            this.ContextMenuOptions.Size = new System.Drawing.Size(118, 70);
             // 
             // MenuItem_AddItem
             // 
             this.MenuItem_AddItem.Name = "MenuItem_AddItem";
-            this.MenuItem_AddItem.Size = new System.Drawing.Size(180, 22);
+            this.MenuItem_AddItem.Size = new System.Drawing.Size(117, 22);
             this.MenuItem_AddItem.Text = "Add";
             this.MenuItem_AddItem.Click += new System.EventHandler(this.MenuItem_AddItem_Click);
             // 
             // MenuItem_RemoveItem
             // 
             this.MenuItem_RemoveItem.Name = "MenuItem_RemoveItem";
-            this.MenuItem_RemoveItem.Size = new System.Drawing.Size(180, 22);
+            this.MenuItem_RemoveItem.Size = new System.Drawing.Size(117, 22);
             this.MenuItem_RemoveItem.Text = "Remove";
             this.MenuItem_RemoveItem.Click += new System.EventHandler(this.MenuItem_RemoveItem_Click);
             // 
             // MenuItem_ModifyItem
             // 
             this.MenuItem_ModifyItem.Name = "MenuItem_ModifyItem";
-            this.MenuItem_ModifyItem.Size = new System.Drawing.Size(180, 22);
+            this.MenuItem_ModifyItem.Size = new System.Drawing.Size(117, 22);
             this.MenuItem_ModifyItem.Text = "Modify";
             this.MenuItem_ModifyItem.Click += new System.EventHandler(this.MenuItem_ModifyItem_Click);
             // 

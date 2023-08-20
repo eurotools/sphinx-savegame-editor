@@ -29,6 +29,11 @@ namespace SavegameEditor.Forms.Panels
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.ContextMenu_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MenuItem_Add = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_Modify = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_Remove = new System.Windows.Forms.ToolStripMenuItem();
             this.lvwCurrentLevelTriggers = new SavegameEditor.ListView_ColumnSortingClick();
             this.colTrigType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColTrigSubtype = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -36,7 +41,39 @@ namespace SavegameEditor.Forms.Panels
             this.ColPosX = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColPosY = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColPosZ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ContextMenu_Options.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // ContextMenu_Options
+            // 
+            this.ContextMenu_Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItem_Add,
+            this.MenuItem_Modify,
+            this.MenuItem_Remove});
+            this.ContextMenu_Options.Name = "ContextMenu_Options";
+            this.ContextMenu_Options.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.ContextMenu_Options.Size = new System.Drawing.Size(118, 70);
+            // 
+            // MenuItem_Add
+            // 
+            this.MenuItem_Add.Name = "MenuItem_Add";
+            this.MenuItem_Add.Size = new System.Drawing.Size(117, 22);
+            this.MenuItem_Add.Text = "Add";
+            this.MenuItem_Add.Click += new System.EventHandler(this.MenuItem_Add_Click);
+            // 
+            // MenuItem_Modify
+            // 
+            this.MenuItem_Modify.Name = "MenuItem_Modify";
+            this.MenuItem_Modify.Size = new System.Drawing.Size(117, 22);
+            this.MenuItem_Modify.Text = "Modify";
+            this.MenuItem_Modify.Click += new System.EventHandler(this.MenuItem_Modify_Click);
+            // 
+            // MenuItem_Remove
+            // 
+            this.MenuItem_Remove.Name = "MenuItem_Remove";
+            this.MenuItem_Remove.Size = new System.Drawing.Size(117, 22);
+            this.MenuItem_Remove.Text = "Remove";
+            this.MenuItem_Remove.Click += new System.EventHandler(this.MenuItem_Remove_Click);
             // 
             // lvwCurrentLevelTriggers
             // 
@@ -47,15 +84,17 @@ namespace SavegameEditor.Forms.Panels
             this.ColPosX,
             this.ColPosY,
             this.ColPosZ});
+            this.lvwCurrentLevelTriggers.ContextMenuStrip = this.ContextMenu_Options;
             this.lvwCurrentLevelTriggers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvwCurrentLevelTriggers.FullRowSelect = true;
             this.lvwCurrentLevelTriggers.HideSelection = false;
             this.lvwCurrentLevelTriggers.Location = new System.Drawing.Point(0, 0);
             this.lvwCurrentLevelTriggers.Name = "lvwCurrentLevelTriggers";
-            this.lvwCurrentLevelTriggers.Size = new System.Drawing.Size(742, 442);
+            this.lvwCurrentLevelTriggers.Size = new System.Drawing.Size(667, 426);
             this.lvwCurrentLevelTriggers.TabIndex = 1;
             this.lvwCurrentLevelTriggers.UseCompatibleStateImageBehavior = false;
             this.lvwCurrentLevelTriggers.View = System.Windows.Forms.View.Details;
+            this.lvwCurrentLevelTriggers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvwCurrentLevelTriggers_MouseDoubleClick);
             // 
             // colTrigType
             // 
@@ -93,7 +132,8 @@ namespace SavegameEditor.Forms.Panels
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lvwCurrentLevelTriggers);
             this.Name = "UserControl_LevelTriggers";
-            this.Size = new System.Drawing.Size(742, 442);
+            this.Size = new System.Drawing.Size(667, 426);
+            this.ContextMenu_Options.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -107,5 +147,9 @@ namespace SavegameEditor.Forms.Panels
         private System.Windows.Forms.ColumnHeader ColPosX;
         private System.Windows.Forms.ColumnHeader ColPosY;
         private System.Windows.Forms.ColumnHeader ColPosZ;
+        private System.Windows.Forms.ContextMenuStrip ContextMenu_Options;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_Add;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_Modify;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_Remove;
     }
 }

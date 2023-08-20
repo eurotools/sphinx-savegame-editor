@@ -13,7 +13,7 @@ namespace SavegameEditor.Objects
         internal uint total_health_thirds;
         internal SvInventory sphinx_inventory = new SvInventory();
         internal SvInventory mummy_inventory = new SvInventory();
-        internal List<SvTrigger> cur_level_triggers = new List<SvTrigger>();
+        internal Dictionary<uint, SvTrigger> cur_level_triggers = new Dictionary<uint, SvTrigger>();
         internal uint player_character_idx;
         internal uint[] mummy_ability_which = new uint[3];
         internal uint[] mummy_ability_time_current = new uint[3];

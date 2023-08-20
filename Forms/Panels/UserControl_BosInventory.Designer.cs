@@ -158,10 +158,10 @@ namespace SavegameEditor
             this.tabInventoryCycles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabInventoryCycles.Location = new System.Drawing.Point(3, 64);
+            this.tabInventoryCycles.Location = new System.Drawing.Point(0, 64);
             this.tabInventoryCycles.Name = "tabInventoryCycles";
             this.tabInventoryCycles.SelectedIndex = 0;
-            this.tabInventoryCycles.Size = new System.Drawing.Size(643, 379);
+            this.tabInventoryCycles.Size = new System.Drawing.Size(649, 382);
             this.tabInventoryCycles.TabIndex = 1;
             // 
             // UserControl_BosInventory

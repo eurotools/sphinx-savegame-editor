@@ -168,10 +168,10 @@ namespace SavegameEditor
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
-        private void WriteTriggers(BinaryWriter binWriter, List<SvTrigger> triggers)
+        private void WriteTriggers(BinaryWriter binWriter, Dictionary<uint, SvTrigger> triggers)
         {
             binWriter.Write(triggers.Count);
-            foreach (SvTrigger triggerData in triggers)
+            foreach (SvTrigger triggerData in triggers.Values)
             {
                 binWriter.Write(triggerData.trig_type);
                 binWriter.Write(triggerData.trig_subtype);
