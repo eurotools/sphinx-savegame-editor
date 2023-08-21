@@ -8,6 +8,7 @@ namespace SavegameEditor
     //-------------------------------------------------------------------------------------------------------------------------------
     public partial class UserControlItemCycle : UserControl
     {
+        private readonly FrmMain mainForm = (FrmMain)Application.OpenForms[nameof(FrmMain)];
         private readonly SvFile saveGameData = ((FrmMain)Application.OpenForms[nameof(FrmMain)]).fileData;
         private SvInventory inventoryData;
 
@@ -37,6 +38,9 @@ namespace SavegameEditor
                 using (ItemProperties itemPropsForm = new ItemProperties(lvwCycle, (int)Tag, true))
                 {
                     itemPropsForm.ShowDialog();
+
+                    //Update Label
+                    RecountInventoryItems();
                 }
             }
         }
@@ -46,8 +50,7 @@ namespace SavegameEditor
         {
             //Get Inventory Data
             inventoryData = saveGameData.sphinx_inventory;
-            int selectedInventory = ((FrmMain)Application.OpenForms[nameof(FrmMain)]).tabControlInventory.SelectedIndex;
-            if (selectedInventory != 0)
+            if (mainForm.tabControlInventory.SelectedIndex != 0)
             {
                 inventoryData = saveGameData.mummy_inventory;
             }
@@ -60,6 +63,9 @@ namespace SavegameEditor
                 itemData.Remove();
             }
             lvwCycle.EndUpdate();
+
+            //Update Label
+            RecountInventoryItems();
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
@@ -79,14 +85,34 @@ namespace SavegameEditor
         {
             //Get Inventory Data
             inventoryData = saveGameData.sphinx_inventory;
-            int selectedInventory = ((FrmMain)Application.OpenForms[nameof(FrmMain)]).tabControlInventory.SelectedIndex;
-            if (selectedInventory != 0)
+            if (mainForm.tabControlInventory.SelectedIndex != 0)
             {
                 inventoryData = saveGameData.mummy_inventory;
             }
 
             //Update property
             inventoryData.item_cycles[(int)Tag].cur_sel_item = (uint)nudSelectedItem.Value;
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------
+        private void RecountInventoryItems()
+        {
+            //Get label to modify
+            inventoryData = saveGameData.sphinx_inventory;
+            ToolStripStatusLabel statusLabel = mainForm.StatusLabelSphinxItemsValue;
+            if (mainForm.tabControlInventory.SelectedIndex != 0)
+            {
+                inventoryData = saveGameData.mummy_inventory;
+                statusLabel = mainForm.StatusLabelMummyItemsValue;
+            }
+
+            //Recount items
+            int totalItems = 0;
+            foreach (SvItemCycle cycleItems in inventoryData.item_cycles)
+            {
+                totalItems += cycleItems.items.Count;
+            }
+            statusLabel.Text = totalItems.ToString();
         }
     }
 

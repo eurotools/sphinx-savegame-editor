@@ -23,7 +23,7 @@ namespace SavegameEditor
         //-------------------------------------------------------------------------------------------------------------------------------
         private void AddObjectives_Load(object sender, EventArgs e)
         {
-            objectivesSection = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_Objective");
+            objectivesSection = HashCodes.Read_Sound_h(Globals.HashCodesFilePath, "HT_Objective");
 
             //Add items to list
             lstbxAvailableObjectives.BeginUpdate();

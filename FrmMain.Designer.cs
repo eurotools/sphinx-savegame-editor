@@ -30,13 +30,15 @@ namespace SavegameEditor
         private void InitializeComponent()
         {
             this.MainMenu = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItemOpenFile = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Save = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.MenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_Settings = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemSettings_SetHashCodes = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemHelp_About = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAutoLOad = new System.Windows.Forms.Button();
             this.Button_Test = new System.Windows.Forms.Button();
@@ -62,13 +64,19 @@ namespace SavegameEditor
             this.lblVersion = new System.Windows.Forms.Label();
             this.tabContent = new System.Windows.Forms.TabControl();
             this.tabPageObjectives = new System.Windows.Forms.TabPage();
+            this.UserControl_Objectives = new SavegameEditor.Forms.Panels.UserControl_Objectives();
             this.tabPageInventory = new System.Windows.Forms.TabPage();
             this.tabControlInventory = new System.Windows.Forms.TabControl();
             this.tabPageSphinxInv = new System.Windows.Forms.TabPage();
+            this.SphinxInventory = new SavegameEditor.UserControl_BosInventory();
             this.tabPageMummyInv = new System.Windows.Forms.TabPage();
+            this.MummyInventory = new SavegameEditor.UserControl_BosInventory();
             this.tabPageCurrentLevel = new System.Windows.Forms.TabPage();
+            this.UserControl_LevelTriggers = new SavegameEditor.Forms.Panels.UserControl_LevelTriggers();
             this.tabPagePlayerData = new System.Windows.Forms.TabPage();
+            this.userControl_PlayerData1 = new SavegameEditor.Forms.Panels.UserControl_PlayerData();
             this.tabPageOthers = new System.Windows.Forms.TabPage();
+            this.UserControl_OtherData = new SavegameEditor.Forms.Panels.UserControl_OtherData();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nudTotalHealthThirds = new System.Windows.Forms.NumericUpDown();
             this.nudHealthThirds = new System.Windows.Forms.NumericUpDown();
@@ -78,17 +86,14 @@ namespace SavegameEditor
             this.StatusLabelPlatform = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusLabelObjectivesCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusLabelSphinxItems = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StatusLabelSphinxItemsValue = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusLabelMummyItems = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StatusLabelMummyItemsValue = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.txtFilePath = new System.Windows.Forms.TextBox();
             this.lblFile = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.UserControl_Objectives = new SavegameEditor.Forms.Panels.UserControl_Objectives();
-            this.SphinxInventory = new SavegameEditor.UserControl_BosInventory();
-            this.MummyInventory = new SavegameEditor.UserControl_BosInventory();
-            this.UserControl_LevelTriggers = new SavegameEditor.Forms.Panels.UserControl_LevelTriggers();
-            this.userControl_PlayerData1 = new SavegameEditor.Forms.Panels.UserControl_PlayerData();
-            this.UserControl_OtherData = new SavegameEditor.Forms.Panels.UserControl_OtherData();
+            this.openFileDialogHashCodes = new System.Windows.Forms.OpenFileDialog();
             this.MainMenu.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLevelEntrance)).BeginInit();
@@ -114,8 +119,9 @@ namespace SavegameEditor
             // MainMenu
             // 
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.MenuItem_File,
+            this.MenuItem_Settings,
+            this.MenuItem_Help});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -123,16 +129,16 @@ namespace SavegameEditor
             this.MainMenu.TabIndex = 0;
             this.MainMenu.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // MenuItem_File
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItem_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItemOpenFile,
             this.MenuItem_Save,
             this.toolStripSeparator1,
-            this.MenuItemExit});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.MenuItem_Exit});
+            this.MenuItem_File.Name = "MenuItem_File";
+            this.MenuItem_File.Size = new System.Drawing.Size(37, 20);
+            this.MenuItem_File.Text = "File";
             // 
             // MenuItemOpenFile
             // 
@@ -153,26 +159,41 @@ namespace SavegameEditor
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
             // 
-            // MenuItemExit
+            // MenuItem_Exit
             // 
-            this.MenuItemExit.Name = "MenuItemExit";
-            this.MenuItemExit.Size = new System.Drawing.Size(103, 22);
-            this.MenuItemExit.Text = "Exit";
-            this.MenuItemExit.Click += new System.EventHandler(this.MenuItemExit_Click);
+            this.MenuItem_Exit.Name = "MenuItem_Exit";
+            this.MenuItem_Exit.Size = new System.Drawing.Size(103, 22);
+            this.MenuItem_Exit.Text = "Exit";
+            this.MenuItem_Exit.Click += new System.EventHandler(this.MenuItemExit_Click);
             // 
-            // helpToolStripMenuItem
+            // MenuItem_Settings
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.MenuItem_Settings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItemSettings_SetHashCodes});
+            this.MenuItem_Settings.Name = "MenuItem_Settings";
+            this.MenuItem_Settings.Size = new System.Drawing.Size(61, 20);
+            this.MenuItem_Settings.Text = "Settings";
             // 
-            // aboutToolStripMenuItem
+            // MenuItemSettings_SetHashCodes
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.MenuItemSettings_SetHashCodes.Name = "MenuItemSettings_SetHashCodes";
+            this.MenuItemSettings_SetHashCodes.Size = new System.Drawing.Size(178, 22);
+            this.MenuItemSettings_SetHashCodes.Text = "Set Hashcodes Path";
+            this.MenuItemSettings_SetHashCodes.Click += new System.EventHandler(this.MenuItemSettings_SetHashCodes_Click);
+            // 
+            // MenuItem_Help
+            // 
+            this.MenuItem_Help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItemHelp_About});
+            this.MenuItem_Help.Name = "MenuItem_Help";
+            this.MenuItem_Help.Size = new System.Drawing.Size(44, 20);
+            this.MenuItem_Help.Text = "Help";
+            // 
+            // MenuItemHelp_About
+            // 
+            this.MenuItemHelp_About.Name = "MenuItemHelp_About";
+            this.MenuItemHelp_About.Size = new System.Drawing.Size(107, 22);
+            this.MenuItemHelp_About.Text = "About";
             // 
             // groupBox2
             // 
@@ -213,6 +234,7 @@ namespace SavegameEditor
             this.btnAutoLOad.TabIndex = 23;
             this.btnAutoLOad.Text = "Auto Load";
             this.btnAutoLOad.UseVisualStyleBackColor = true;
+            this.btnAutoLOad.Visible = false;
             this.btnAutoLOad.Click += new System.EventHandler(this.BtnAutoLOad_Click);
             // 
             // Button_Test
@@ -223,6 +245,7 @@ namespace SavegameEditor
             this.Button_Test.TabIndex = 22;
             this.Button_Test.Text = "Test Save";
             this.Button_Test.UseVisualStyleBackColor = true;
+            this.Button_Test.Visible = false;
             this.Button_Test.Click += new System.EventHandler(this.Button_Test_Click);
             // 
             // txtbLevelTime
@@ -232,6 +255,7 @@ namespace SavegameEditor
             this.txtbLevelTime.Size = new System.Drawing.Size(93, 20);
             this.txtbLevelTime.TabIndex = 21;
             this.txtbLevelTime.Text = "0";
+            this.txtbLevelTime.Validated += new System.EventHandler(this.TxtbLevelTime_Validated);
             // 
             // lvlLevelTime
             // 
@@ -404,6 +428,7 @@ namespace SavegameEditor
             this.txtGameTime.Size = new System.Drawing.Size(81, 20);
             this.txtGameTime.TabIndex = 5;
             this.txtGameTime.Text = "0";
+            this.txtGameTime.Validated += new System.EventHandler(this.TxtGameTime_Validated);
             // 
             // lblGameTime
             // 
@@ -460,6 +485,14 @@ namespace SavegameEditor
             this.tabPageObjectives.TabIndex = 0;
             this.tabPageObjectives.Text = "Objectives";
             // 
+            // UserControl_Objectives
+            // 
+            this.UserControl_Objectives.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserControl_Objectives.Location = new System.Drawing.Point(3, 3);
+            this.UserControl_Objectives.Name = "UserControl_Objectives";
+            this.UserControl_Objectives.Size = new System.Drawing.Size(802, 575);
+            this.UserControl_Objectives.TabIndex = 0;
+            // 
             // tabPageInventory
             // 
             this.tabPageInventory.BackColor = System.Drawing.SystemColors.Control;
@@ -493,6 +526,14 @@ namespace SavegameEditor
             this.tabPageSphinxInv.TabIndex = 0;
             this.tabPageSphinxInv.Text = "Sphinx";
             // 
+            // SphinxInventory
+            // 
+            this.SphinxInventory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SphinxInventory.Location = new System.Drawing.Point(3, 3);
+            this.SphinxInventory.Name = "SphinxInventory";
+            this.SphinxInventory.Size = new System.Drawing.Size(788, 543);
+            this.SphinxInventory.TabIndex = 0;
+            // 
             // tabPageMummyInv
             // 
             this.tabPageMummyInv.BackColor = System.Drawing.SystemColors.Control;
@@ -503,6 +544,14 @@ namespace SavegameEditor
             this.tabPageMummyInv.Size = new System.Drawing.Size(794, 549);
             this.tabPageMummyInv.TabIndex = 1;
             this.tabPageMummyInv.Text = "Mummy";
+            // 
+            // MummyInventory
+            // 
+            this.MummyInventory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MummyInventory.Location = new System.Drawing.Point(3, 3);
+            this.MummyInventory.Name = "MummyInventory";
+            this.MummyInventory.Size = new System.Drawing.Size(788, 543);
+            this.MummyInventory.TabIndex = 0;
             // 
             // tabPageCurrentLevel
             // 
@@ -515,6 +564,14 @@ namespace SavegameEditor
             this.tabPageCurrentLevel.TabIndex = 2;
             this.tabPageCurrentLevel.Text = "Current Level";
             // 
+            // UserControl_LevelTriggers
+            // 
+            this.UserControl_LevelTriggers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserControl_LevelTriggers.Location = new System.Drawing.Point(3, 3);
+            this.UserControl_LevelTriggers.Name = "UserControl_LevelTriggers";
+            this.UserControl_LevelTriggers.Size = new System.Drawing.Size(802, 575);
+            this.UserControl_LevelTriggers.TabIndex = 0;
+            // 
             // tabPagePlayerData
             // 
             this.tabPagePlayerData.BackColor = System.Drawing.SystemColors.Control;
@@ -526,6 +583,14 @@ namespace SavegameEditor
             this.tabPagePlayerData.TabIndex = 3;
             this.tabPagePlayerData.Text = "Player Data";
             // 
+            // userControl_PlayerData1
+            // 
+            this.userControl_PlayerData1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl_PlayerData1.Location = new System.Drawing.Point(3, 3);
+            this.userControl_PlayerData1.Name = "userControl_PlayerData1";
+            this.userControl_PlayerData1.Size = new System.Drawing.Size(802, 575);
+            this.userControl_PlayerData1.TabIndex = 0;
+            // 
             // tabPageOthers
             // 
             this.tabPageOthers.BackColor = System.Drawing.SystemColors.Control;
@@ -536,6 +601,14 @@ namespace SavegameEditor
             this.tabPageOthers.Size = new System.Drawing.Size(808, 581);
             this.tabPageOthers.TabIndex = 4;
             this.tabPageOthers.Text = "Others";
+            // 
+            // UserControl_OtherData
+            // 
+            this.UserControl_OtherData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserControl_OtherData.Location = new System.Drawing.Point(3, 3);
+            this.UserControl_OtherData.Name = "UserControl_OtherData";
+            this.UserControl_OtherData.Size = new System.Drawing.Size(802, 575);
+            this.UserControl_OtherData.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -600,7 +673,9 @@ namespace SavegameEditor
             this.StatusLabelPlatform,
             this.StatusLabelObjectivesCount,
             this.StatusLabelSphinxItems,
-            this.StatusLabelMummyItems});
+            this.StatusLabelSphinxItemsValue,
+            this.StatusLabelMummyItems,
+            this.StatusLabelMummyItemsValue});
             this.statusBar.Location = new System.Drawing.Point(0, 769);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(840, 22);
@@ -610,7 +685,7 @@ namespace SavegameEditor
             // StatusLabelPlatform
             // 
             this.StatusLabelPlatform.Name = "StatusLabelPlatform";
-            this.StatusLabelPlatform.Size = new System.Drawing.Size(475, 17);
+            this.StatusLabelPlatform.Size = new System.Drawing.Size(467, 17);
             this.StatusLabelPlatform.Spring = true;
             this.StatusLabelPlatform.Text = "Platform: NA";
             this.StatusLabelPlatform.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -624,14 +699,28 @@ namespace SavegameEditor
             // StatusLabelSphinxItems
             // 
             this.StatusLabelSphinxItems.Name = "StatusLabelSphinxItems";
-            this.StatusLabelSphinxItems.Size = new System.Drawing.Size(115, 17);
-            this.StatusLabelSphinxItems.Text = "Total Sphinx Items: 0";
+            this.StatusLabelSphinxItems.Size = new System.Drawing.Size(106, 17);
+            this.StatusLabelSphinxItems.Text = "Total Sphinx Items:";
+            // 
+            // StatusLabelSphinxItemsValue
+            // 
+            this.StatusLabelSphinxItemsValue.Name = "StatusLabelSphinxItemsValue";
+            this.StatusLabelSphinxItemsValue.Size = new System.Drawing.Size(13, 17);
+            this.StatusLabelSphinxItemsValue.Text = "0";
+            this.StatusLabelSphinxItemsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // StatusLabelMummyItems
             // 
             this.StatusLabelMummyItems.Name = "StatusLabelMummyItems";
-            this.StatusLabelMummyItems.Size = new System.Drawing.Size(125, 17);
-            this.StatusLabelMummyItems.Text = "Total Mummy Items: 0";
+            this.StatusLabelMummyItems.Size = new System.Drawing.Size(116, 17);
+            this.StatusLabelMummyItems.Text = "Total Mummy Items:";
+            // 
+            // StatusLabelMummyItemsValue
+            // 
+            this.StatusLabelMummyItemsValue.Name = "StatusLabelMummyItemsValue";
+            this.StatusLabelMummyItemsValue.Size = new System.Drawing.Size(13, 17);
+            this.StatusLabelMummyItemsValue.Text = "0";
+            this.StatusLabelMummyItemsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // openFileDialog
             // 
@@ -655,53 +744,10 @@ namespace SavegameEditor
             this.lblFile.TabIndex = 0;
             this.lblFile.Text = "File Path:";
             // 
-            // UserControl_Objectives
+            // openFileDialogHashCodes
             // 
-            this.UserControl_Objectives.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserControl_Objectives.Location = new System.Drawing.Point(3, 3);
-            this.UserControl_Objectives.Name = "UserControl_Objectives";
-            this.UserControl_Objectives.Size = new System.Drawing.Size(802, 575);
-            this.UserControl_Objectives.TabIndex = 0;
-            // 
-            // SphinxInventory
-            // 
-            this.SphinxInventory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SphinxInventory.Location = new System.Drawing.Point(3, 3);
-            this.SphinxInventory.Name = "SphinxInventory";
-            this.SphinxInventory.Size = new System.Drawing.Size(788, 543);
-            this.SphinxInventory.TabIndex = 0;
-            // 
-            // MummyInventory
-            // 
-            this.MummyInventory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MummyInventory.Location = new System.Drawing.Point(3, 3);
-            this.MummyInventory.Name = "MummyInventory";
-            this.MummyInventory.Size = new System.Drawing.Size(788, 543);
-            this.MummyInventory.TabIndex = 0;
-            // 
-            // UserControl_LevelTriggers
-            // 
-            this.UserControl_LevelTriggers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserControl_LevelTriggers.Location = new System.Drawing.Point(3, 3);
-            this.UserControl_LevelTriggers.Name = "UserControl_LevelTriggers";
-            this.UserControl_LevelTriggers.Size = new System.Drawing.Size(802, 575);
-            this.UserControl_LevelTriggers.TabIndex = 0;
-            // 
-            // userControl_PlayerData1
-            // 
-            this.userControl_PlayerData1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_PlayerData1.Location = new System.Drawing.Point(3, 3);
-            this.userControl_PlayerData1.Name = "userControl_PlayerData1";
-            this.userControl_PlayerData1.Size = new System.Drawing.Size(802, 575);
-            this.userControl_PlayerData1.TabIndex = 0;
-            // 
-            // UserControl_OtherData
-            // 
-            this.UserControl_OtherData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserControl_OtherData.Location = new System.Drawing.Point(3, 3);
-            this.UserControl_OtherData.Name = "UserControl_OtherData";
-            this.UserControl_OtherData.Size = new System.Drawing.Size(802, 575);
-            this.UserControl_OtherData.TabIndex = 0;
+            this.openFileDialogHashCodes.Filter = "Header Files (*.h)|*.h|All Files (*.*)|*.*";
+            this.openFileDialogHashCodes.RestoreDirectory = true;
             // 
             // FrmMain
             // 
@@ -754,12 +800,12 @@ namespace SavegameEditor
         #endregion
 
         private System.Windows.Forms.MenuStrip MainMenu;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_File;
         private System.Windows.Forms.ToolStripMenuItem MenuItemOpenFile;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem MenuItemExit;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_Exit;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_Help;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemHelp_About;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TabControl tabContent;
         private System.Windows.Forms.TabPage tabPageObjectives;
@@ -792,8 +838,6 @@ namespace SavegameEditor
         private System.Windows.Forms.NumericUpDown nudHealthThirds;
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabelPlatform;
-        private System.Windows.Forms.ToolStripStatusLabel StatusLabelSphinxItems;
-        private System.Windows.Forms.ToolStripStatusLabel StatusLabelMummyItems;
         private UserControl_BosInventory SphinxInventory;
         private UserControl_BosInventory MummyInventory;
         protected internal System.Windows.Forms.ComboBox cbxLevelHashCode;
@@ -813,6 +857,13 @@ namespace SavegameEditor
         private Forms.Panels.UserControl_LevelTriggers UserControl_LevelTriggers;
         private Forms.Panels.UserControl_PlayerData userControl_PlayerData1;
         private Forms.Panels.UserControl_OtherData UserControl_OtherData;
+        protected internal System.Windows.Forms.ToolStripStatusLabel StatusLabelSphinxItemsValue;
+        private System.Windows.Forms.ToolStripStatusLabel StatusLabelMummyItems;
+        protected internal System.Windows.Forms.ToolStripStatusLabel StatusLabelMummyItemsValue;
+        private System.Windows.Forms.ToolStripStatusLabel StatusLabelSphinxItems;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_Settings;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemSettings_SetHashCodes;
+        private System.Windows.Forms.OpenFileDialog openFileDialogHashCodes;
     }
 }
 

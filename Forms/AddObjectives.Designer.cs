@@ -66,6 +66,7 @@ namespace SavegameEditor
             this.lstbxAvailableObjectives.Name = "lstbxAvailableObjectives";
             this.lstbxAvailableObjectives.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstbxAvailableObjectives.Size = new System.Drawing.Size(290, 476);
+            this.lstbxAvailableObjectives.Sorted = true;
             this.lstbxAvailableObjectives.TabIndex = 0;
             // 
             // grbxObjectivesToAdd

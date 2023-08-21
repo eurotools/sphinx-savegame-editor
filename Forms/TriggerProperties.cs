@@ -71,7 +71,7 @@ namespace SavegameEditor.Forms
 
                     //Add item to dictionary
                     uint[] availableKeys = saveGameData.cur_level_triggers.Keys.ToArray();
-                    uint triggerKey = GetMaxValueArray(availableKeys) + 1;
+                    uint triggerKey = Globals.GetMaxValueArray(availableKeys) + 1;
                     saveGameData.cur_level_triggers.Add(triggerKey, triggerData);
 
                     //Add item to list
@@ -104,27 +104,6 @@ namespace SavegameEditor.Forms
                     }
                 }
             }
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------
-        private uint GetMaxValueArray(uint[] arr)
-        {
-            uint i;
-
-            // Initialize maximum element
-            uint max = arr[0];
-
-            // Traverse array elements from second and
-            // compare every element with current max
-            for (i = 1; i < arr.Length; i++)
-            {
-                if (arr[i] > max)
-                {
-                    max = arr[i];
-                }
-            }
-
-            return max;
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------

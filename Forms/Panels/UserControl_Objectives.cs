@@ -25,7 +25,7 @@ namespace SavegameEditor.Forms.Panels
         internal void PrintObjectives(SvFile savegameData)
         {
             fileData = savegameData;
-            Dictionary<uint, string> HashTable = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h");
+            Dictionary<uint, string> HashTable = HashCodes.Read_Sound_h(Globals.HashCodesFilePath);
 
             lvwObjectives.BeginUpdate();
 

@@ -40,7 +40,7 @@ namespace SavegameEditor
             //Add hashcodes to combobox if required
             if (NewItemMode)
             {
-                HashTable = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_Item", "HT_File");
+                HashTable = HashCodes.Read_Sound_h(Globals.HashCodesFilePath, "HT_Item", "HT_File");
                 cbxHashcode.Items.AddRange(HashTable.Values.ToArray());
                 cbxHashcode.SelectedIndex = 0;
             }

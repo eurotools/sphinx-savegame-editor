@@ -2,6 +2,7 @@
 using SavegameEditor.Reader;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -49,12 +50,23 @@ namespace SavegameEditor
         }
 
         //*===============================================================================================
+        //* MAIN MENU - SETTINGS
+        //*===============================================================================================
+        private void MenuItemSettings_SetHashCodes_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogHashCodes.ShowDialog() == DialogResult.OK)
+            {
+                Globals.HashCodesFilePath = openFileDialogHashCodes.FileName;
+            }
+        }
+
+        //*===============================================================================================
         //* FORM EVENTS
         //*===============================================================================================
         private void FrmMain_Load(object sender, EventArgs e)
         {
             //Read hashcodes
-            Dictionary<uint, string> fileSection = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_File");
+            Dictionary<uint, string> fileSection = HashCodes.Read_Sound_h(Globals.HashCodesFilePath, "HT_File");
             cbxLevelHashCode.BeginUpdate();
             cbxLevelHashCode.Items.AddRange(fileSection.Values.ToArray());
             if (cbxLevelHashCode.Items.Count > 0)
@@ -91,7 +103,7 @@ namespace SavegameEditor
         private void CbxLevelHashCode_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //Get Level hashcode
-            Dictionary<uint, string> fileSection = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_File");
+            Dictionary<uint, string> fileSection = HashCodes.Read_Sound_h(Globals.HashCodesFilePath, "HT_File");
             uint myKey = fileSection.FirstOrDefault(x => x.Value.Equals(cbxLevelHashCode.SelectedItem)).Key;
 
             //Update property
@@ -171,7 +183,7 @@ namespace SavegameEditor
         //*===============================================================================================
         internal void PrintHeader(SvFile savegameData)
         {
-            Dictionary<uint, string> HashTable = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_File");
+            Dictionary<uint, string> HashTable = HashCodes.Read_Sound_h(Globals.HashCodesFilePath, "HT_File");
 
             txtVersion.Text = "0x" + savegameData.headerData.version.ToString("X8");
             txtbTag.Text = savegameData.headerData.save_name_tag;
@@ -195,6 +207,34 @@ namespace SavegameEditor
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
+        private void TxtGameTime_Validated(object sender, EventArgs e)
+        {
+            if (TimeSpan.TryParse(txtGameTime.Text, out TimeSpan gameTime))
+            {
+                uint convertedTime = (uint)(gameTime.TotalSeconds * 60);
+                fileData.headerData.game_time_sec = convertedTime;
+            }
+            else
+            {
+                MessageBox.Show("Invalid format. Please enter a valid time in the format HH:MM:SS.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------
+        private void TxtbLevelTime_Validated(object sender, EventArgs e)
+        {
+            if (TimeSpan.TryParse(txtbLevelTime.Text, out TimeSpan levelTime))
+            {
+                int convertedTime = (int)(levelTime.TotalSeconds * 60);
+                fileData.headerData.cur_level_timer = convertedTime;
+            }
+            else
+            {
+                MessageBox.Show("Invalid format. Please enter a valid time in the format HH:MM:SS.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------
         internal void PrintSecondaryHeader(SvFile savegameData)
         {
             nudHealthThirds.Value = savegameData.health_thirds;
@@ -204,29 +244,37 @@ namespace SavegameEditor
         //-------------------------------------------------------------------------------------------------------------------------------
         private void OpenSaveFile(string filePath)
         {
-            //Read file
-            SvReader_PC fileReader = new SvReader_PC();
-            try
+            if (!string.IsNullOrEmpty(Globals.HashCodesFilePath) && File.Exists(Globals.HashCodesFilePath))
             {
-                fileData = fileReader.ReadFile(filePath);
-                txtFilePath.Text = filePath;
+                //Read file
+                SvReader_PC fileReader = new SvReader_PC();
+                try
+                {
+                    fileData = fileReader.ReadFile(filePath);
+                    txtFilePath.Text = filePath;
 
-                //Show data
-                UserControl_Objectives.PrintObjectives(fileData);
-                PrintHeader(fileData);
-                PrintSecondaryHeader(fileData);
-                SphinxInventory.LoadInventory(fileData.sphinx_inventory);
-                MummyInventory.LoadInventory(fileData.mummy_inventory);
-                UserControl_LevelTriggers.PrintLevelTriggers(fileData);
-                userControl_PlayerData1.PrintCharactersData(fileData);
-                UserControl_OtherData.PrintCameraSettings(fileData);
-                UserControl_OtherData.PrintProgrammableButtons(fileData);
-                userControl_PlayerData1.PrintPlayerData(fileData);
-                UserControl_OtherData.PrintInventoryNotes(fileData);
+                    //Show data
+                    UserControl_Objectives.PrintObjectives(fileData);
+                    PrintHeader(fileData);
+                    PrintSecondaryHeader(fileData);
+                    int sphinxItems = SphinxInventory.LoadInventory(fileData.sphinx_inventory);
+                    StatusLabelSphinxItemsValue.Text = sphinxItems.ToString();
+                    int mummyItems = MummyInventory.LoadInventory(fileData.mummy_inventory);
+                    StatusLabelMummyItemsValue.Text = mummyItems.ToString();
+                    UserControl_LevelTriggers.PrintLevelTriggers(fileData);
+                    UserControl_OtherData.PrintCameraSettings(fileData);
+                    UserControl_OtherData.PrintProgrammableButtons(fileData);
+                    userControl_PlayerData1.PrintPlayerData(fileData);
+                    UserControl_OtherData.PrintInventoryNotes(fileData);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please specify the path to \"hashcodes.h\" before opening the file. This dependency is required for proper functionality.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

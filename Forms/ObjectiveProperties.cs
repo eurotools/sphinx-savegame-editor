@@ -26,7 +26,7 @@ namespace SavegameEditor
         private void ObjectiveProperties_Load(object sender, EventArgs e)
         {
             //Read hashcodes
-            Dictionary<uint, string> hashcodeLabels = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_Objective");
+            Dictionary<uint, string> hashcodeLabels = HashCodes.Read_Sound_h(Globals.HashCodesFilePath, "HT_Objective");
             cbxHashCode.Items.AddRange(hashcodeLabels.Values.ToArray());
 
             //Update Text
@@ -85,7 +85,7 @@ namespace SavegameEditor
             }
             else
             {
-                Dictionary<uint, string> HashTable = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_Objective");
+                Dictionary<uint, string> HashTable = HashCodes.Read_Sound_h(Globals.HashCodesFilePath, "HT_Objective");
 
                 //Update UI & Dictionary
                 SvFile saveGameData = ((FrmMain)Application.OpenForms[nameof(FrmMain)]).fileData;

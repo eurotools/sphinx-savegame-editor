@@ -19,10 +19,11 @@ namespace SavegameEditor
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
-        internal void LoadInventory(SvInventory invData)
+        internal int LoadInventory(SvInventory invData)
         {
+            int totalItems = 0;
             currentInventoryData = invData;
-            Dictionary<uint, string> HashTable = HashCodes.Read_Sound_h(@"X:\Sphinx\Albert\Hashcodes.h", "HT_Item", "HT_File");
+            Dictionary<uint, string> HashTable = HashCodes.Read_Sound_h(Globals.HashCodesFilePath, "HT_Item", "HT_File");
 
             nudFilterInclude.Value = currentInventoryData.filter_include;
             nudFilterOptional.Value = currentInventoryData.filter_optional;
@@ -66,9 +67,12 @@ namespace SavegameEditor
                         Tag = itemData.hashcode
                     };
                     dataControl.lvwCycle.Items.Add(listItem);
+                    totalItems++;
                 }
                 dataControl.lvwCycle.EndUpdate();
             }
+
+            return totalItems;
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------

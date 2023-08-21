@@ -207,13 +207,13 @@ namespace SavegameEditor
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
-        private void WriteMummyVectors(BinaryWriter binWriter, uint[] activeCopies, List<SvVectorXYZW> vectorsList)
+        private void WriteMummyVectors(BinaryWriter binWriter, uint[] activeCopies, Dictionary<uint, SvVectorXYZW> vectorsList)
         {
             for (int i = 0; i < activeCopies.Length; i++)
             {
                 if (activeCopies[i] == 1)
                 {
-                    SvVectorXYZW mummyPos = vectorsList[i];
+                    SvVectorXYZW mummyPos = vectorsList.ElementAt(i).Value;
                     binWriter.Write(mummyPos.X);
                     binWriter.Write(mummyPos.Y);
                     binWriter.Write(mummyPos.Z);

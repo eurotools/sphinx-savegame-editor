@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddNotes.Designer.cs">
+      <DependentUpon>AddNotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddObjectives.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,12 @@
     </Compile>
     <Compile Include="Forms\TriggerProperties.Designer.cs">
       <DependentUpon>TriggerProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VectorSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VectorSettings.Designer.cs">
+      <DependentUpon>VectorSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -137,6 +149,9 @@
       <DependentUpon>UserControlItemCycle.cs</DependentUpon>
     </Compile>
     <Compile Include="Writer\svWriter_PC.cs" />
+    <EmbeddedResource Include="Forms\AddNotes.resx">
+      <DependentUpon>AddNotes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddObjectives.resx">
       <DependentUpon>AddObjectives.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TriggerProperties.resx">
       <DependentUpon>TriggerProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VectorSettings.resx">
+      <DependentUpon>VectorSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

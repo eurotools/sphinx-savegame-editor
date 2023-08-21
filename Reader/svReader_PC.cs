@@ -191,7 +191,7 @@ namespace SavegameEditor.Reader
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------
-        private void ReadMummyVectors(BinaryReader binReader, uint[] activeCopies, List<SvVectorXYZW> vectorsList)
+        private void ReadMummyVectors(BinaryReader binReader, uint[] activeCopies, Dictionary<uint, SvVectorXYZW> vectorsList)
         {
             for (int i = 0; i < activeCopies.Length; i++)
             {
@@ -204,7 +204,7 @@ namespace SavegameEditor.Reader
                         Z = binReader.ReadSingle(),
                         W = binReader.ReadSingle()
                     };
-                    vectorsList.Add(mummyPos);
+                    vectorsList.Add((uint)i, mummyPos);
                 }
             }
         }
