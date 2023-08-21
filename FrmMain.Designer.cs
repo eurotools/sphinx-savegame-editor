@@ -192,8 +192,9 @@ namespace SavegameEditor
             // MenuItemHelp_About
             // 
             this.MenuItemHelp_About.Name = "MenuItemHelp_About";
-            this.MenuItemHelp_About.Size = new System.Drawing.Size(107, 22);
+            this.MenuItemHelp_About.Size = new System.Drawing.Size(180, 22);
             this.MenuItemHelp_About.Text = "About";
+            this.MenuItemHelp_About.Click += new System.EventHandler(this.MenuItemHelp_About_Click);
             // 
             // groupBox2
             // 

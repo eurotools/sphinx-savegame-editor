@@ -1,4 +1,5 @@
-﻿using SavegameEditor.Objects;
+﻿using SavegameEditor.Forms;
+using SavegameEditor.Objects;
 using SavegameEditor.Reader;
 using System;
 using System.Collections.Generic;
@@ -57,6 +58,17 @@ namespace SavegameEditor
             if (openFileDialogHashCodes.ShowDialog() == DialogResult.OK)
             {
                 Globals.HashCodesFilePath = openFileDialogHashCodes.FileName;
+            }
+        }
+
+        //*===============================================================================================
+        //* MAIN MENU - ABOUT
+        //*===============================================================================================
+        private void MenuItemHelp_About_Click(object sender, EventArgs e)
+        {
+            using (About frmAbout = new About())
+            {
+                frmAbout.ShowDialog();
             }
         }
 
