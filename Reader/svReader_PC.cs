@@ -114,7 +114,10 @@ namespace SavegameEditor.Reader
                 uint desc_hashcode = binReader.ReadUInt32();
                 if (title_hashcode != 0 && desc_hashcode != 0)
                 {
-                    destList.Add(title_hashcode, desc_hashcode);
+                    if (!destList.ContainsKey(title_hashcode))
+                    {
+                        destList.Add(title_hashcode, desc_hashcode);
+                    }
                 }
             }
             activeNotes = binReader.ReadUInt32();
