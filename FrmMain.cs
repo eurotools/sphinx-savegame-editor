@@ -38,9 +38,16 @@ namespace SavegameEditor
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                SvWriter_PC saveFile = new SvWriter_PC();
-                saveFile.WriteFile(saveFileDialog.FileName, fileData);
-                MessageBox.Show("File Saved Successfully!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try
+                {
+                    SvWriter_PC saveFile = new SvWriter_PC();
+                    saveFile.WriteFile(saveFileDialog.FileName, fileData);
+                    MessageBox.Show("File Saved Successfully!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
