@@ -100,6 +100,11 @@ namespace SavegameEditor
             // nudObjectiveValue
             // 
             this.nudObjectiveValue.Location = new System.Drawing.Point(90, 19);
+            this.nudObjectiveValue.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
             this.nudObjectiveValue.Name = "nudObjectiveValue";
             this.nudObjectiveValue.Size = new System.Drawing.Size(120, 20);
             this.nudObjectiveValue.TabIndex = 0;

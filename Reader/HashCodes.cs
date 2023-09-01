@@ -12,7 +12,7 @@ namespace SavegameEditor.Reader
     internal static class HashCodes
     {
         //-------------------------------------------------------------------------------------------------------------------------------
-        internal static Dictionary<uint, string> Read_Sound_h(string filePath, string sectionA = "", string sectionB = "")
+        internal static Dictionary<uint, string> Read_Sound_h(string filePath, string sectionA = "", string sectionB = "", string sectionC = "")
         {
             Dictionary<uint, string> HashTable = new Dictionary<uint, string>();
             try
@@ -32,11 +32,15 @@ namespace SavegameEditor.Reader
                             input = input.Replace("#define ", string.Empty);
                             Match match = Regex.Match(input, "([\\w]+)");
                             string label = match.ToString().Trim();
-                            if ((sectionA.Length > 0 && label.StartsWith(sectionA, StringComparison.OrdinalIgnoreCase)) || (sectionB.Length > 0 && label.StartsWith(sectionB, StringComparison.OrdinalIgnoreCase)))
+                            if ((sectionA.Length > 0 && label.StartsWith(sectionA, StringComparison.OrdinalIgnoreCase)) || (sectionB.Length > 0 && label.StartsWith(sectionB, StringComparison.OrdinalIgnoreCase)) || (sectionC.Length > 0 && label.StartsWith(sectionC, StringComparison.OrdinalIgnoreCase)))
                             {
                                 GetAndAddObjectives(input, label, HashTable);
                             }
                             else if (sectionA.Length == 0 && sectionB.Length == 0)
+                            {
+                                GetAndAddObjectives(input, label, HashTable);
+                            }
+                            else if (sectionC.Length == 0)
                             {
                                 GetAndAddObjectives(input, label, HashTable);
                             }

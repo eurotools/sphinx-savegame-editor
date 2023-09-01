@@ -39,17 +39,18 @@ namespace SavegameEditor.Forms.Panels
             foreach (KeyValuePair<uint, uint> objective in savegameData.Objectives)
             {
                 //Get Hashcode Label
+                bool containsHashCode = false;
                 string hashcodeLabel = "**HASHCODE NOT FOUND**";
                 if (HashTable.ContainsKey(objective.Key))
                 {
                     hashcodeLabel = HashTable[objective.Key];
                 }
 
-                //Check value is a hashcode
+                //Check value is a hashcode                
                 string valueHashCode = objective.Value.ToString();
                 if ((objective.Value & 0xFFFF0000) > 0)
                 {
-                    valueHashCode = "**HASHCODE NOT FOUND**";
+                    containsHashCode = true;
                     if (HashTable.ContainsKey(objective.Value))
                     {
                         valueHashCode = HashTable[objective.Value];
@@ -57,7 +58,7 @@ namespace SavegameEditor.Forms.Panels
                 }
 
                 //Add new item
-                ListViewItem itemData = new ListViewItem(new[] { hashcodeLabel, "0x" + objective.Key.ToString("X8"), valueHashCode })
+                ListViewItem itemData = new ListViewItem(new[] { hashcodeLabel, "0x" + objective.Key.ToString("X8"), valueHashCode, containsHashCode.ToString() })
                 {
                     Tag = objective.Key
                 };

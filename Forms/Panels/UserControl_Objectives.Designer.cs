@@ -30,49 +30,17 @@ namespace SavegameEditor.Forms.Panels
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lvwObjectives = new SavegameEditor.ListView_ColumnSortingClick();
-            this.colObjLabel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colObjHashCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colObjValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ContextMenuObjectives = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuItem_AddObjectives = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_DeleteObjective = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_ModifyObjectives = new System.Windows.Forms.ToolStripMenuItem();
+            this.lvwObjectives = new SavegameEditor.ListView_ColumnSortingClick();
+            this.colObjLabel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colObjHashCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colObjValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colObjContainsHashCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ContextMenuObjectives.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lvwObjectives
-            // 
-            this.lvwObjectives.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colObjLabel,
-            this.colObjHashCode,
-            this.colObjValue});
-            this.lvwObjectives.ContextMenuStrip = this.ContextMenuObjectives;
-            this.lvwObjectives.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvwObjectives.FullRowSelect = true;
-            this.lvwObjectives.HideSelection = false;
-            this.lvwObjectives.Location = new System.Drawing.Point(0, 0);
-            this.lvwObjectives.Name = "lvwObjectives";
-            this.lvwObjectives.Size = new System.Drawing.Size(629, 412);
-            this.lvwObjectives.TabIndex = 1;
-            this.lvwObjectives.UseCompatibleStateImageBehavior = false;
-            this.lvwObjectives.View = System.Windows.Forms.View.Details;
-            this.lvwObjectives.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvwObjectives_MouseDoubleClick);
-            // 
-            // colObjLabel
-            // 
-            this.colObjLabel.Text = "Label";
-            this.colObjLabel.Width = 300;
-            // 
-            // colObjHashCode
-            // 
-            this.colObjHashCode.Text = "HashCode";
-            this.colObjHashCode.Width = 90;
-            // 
-            // colObjValue
-            // 
-            this.colObjValue.Text = "Value";
-            this.colObjValue.Width = 90;
             // 
             // ContextMenuObjectives
             // 
@@ -105,6 +73,45 @@ namespace SavegameEditor.Forms.Panels
             this.MenuItem_ModifyObjectives.Text = "Modify Value";
             this.MenuItem_ModifyObjectives.Click += new System.EventHandler(this.MenuItem_ModifyObjectives_Click);
             // 
+            // lvwObjectives
+            // 
+            this.lvwObjectives.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colObjLabel,
+            this.colObjHashCode,
+            this.colObjValue,
+            this.colObjContainsHashCode});
+            this.lvwObjectives.ContextMenuStrip = this.ContextMenuObjectives;
+            this.lvwObjectives.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvwObjectives.FullRowSelect = true;
+            this.lvwObjectives.HideSelection = false;
+            this.lvwObjectives.Location = new System.Drawing.Point(0, 0);
+            this.lvwObjectives.Name = "lvwObjectives";
+            this.lvwObjectives.Size = new System.Drawing.Size(629, 412);
+            this.lvwObjectives.TabIndex = 1;
+            this.lvwObjectives.UseCompatibleStateImageBehavior = false;
+            this.lvwObjectives.View = System.Windows.Forms.View.Details;
+            this.lvwObjectives.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvwObjectives_MouseDoubleClick);
+            // 
+            // colObjLabel
+            // 
+            this.colObjLabel.Text = "Label";
+            this.colObjLabel.Width = 300;
+            // 
+            // colObjHashCode
+            // 
+            this.colObjHashCode.Text = "HashCode";
+            this.colObjHashCode.Width = 90;
+            // 
+            // colObjValue
+            // 
+            this.colObjValue.Text = "Value";
+            this.colObjValue.Width = 90;
+            // 
+            // colObjContainsHashCode
+            // 
+            this.colObjContainsHashCode.Text = "Contains HashCode";
+            this.colObjContainsHashCode.Width = 120;
+            // 
             // UserControl_Objectives
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,5 +134,6 @@ namespace SavegameEditor.Forms.Panels
         private System.Windows.Forms.ToolStripMenuItem MenuItem_AddObjectives;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_DeleteObjective;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_ModifyObjectives;
+        private System.Windows.Forms.ColumnHeader colObjContainsHashCode;
     }
 }

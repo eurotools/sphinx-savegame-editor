@@ -26,7 +26,7 @@ namespace SavegameEditor
         private void ObjectiveProperties_Load(object sender, EventArgs e)
         {
             //Read hashcodes
-            Dictionary<uint, string> hashcodeLabels = HashCodes.Read_Sound_h(Globals.HashCodesFilePath, "HT_Objective");
+            Dictionary<uint, string> hashcodeLabels = HashCodes.Read_Sound_h(Globals.HashCodesFilePath, "HT_Objective", "HT_Text");
             cbxHashCode.Items.AddRange(hashcodeLabels.Values.ToArray());
 
             //Update Text
@@ -85,7 +85,7 @@ namespace SavegameEditor
             }
             else
             {
-                Dictionary<uint, string> HashTable = HashCodes.Read_Sound_h(Globals.HashCodesFilePath, "HT_Objective");
+                Dictionary<uint, string> HashTable = HashCodes.Read_Sound_h(Globals.HashCodesFilePath, "HT_Objective", "HT_Text_");
 
                 //Update UI & Dictionary
                 SvFile saveGameData = ((FrmMain)Application.OpenForms[nameof(FrmMain)]).fileData;
@@ -95,15 +95,32 @@ namespace SavegameEditor
                     {
                         objItem.SubItems[2].Text = nudObjectiveValue.Value.ToString();
                         saveGameData.Objectives[(uint)objItem.Tag] = (uint)nudObjectiveValue.Value;
+                        objItem.SubItems[3].Text = ContainsHashCode((uint)nudObjectiveValue.Value).ToString();
                     }
                     if (radioButton2.Checked && cbxHashCode.SelectedItem != null)
                     {
                         string selectedLabel = cbxHashCode.SelectedItem.ToString();
                         objItem.SubItems[2].Text = selectedLabel;
-                        saveGameData.Objectives[(uint)objItem.Tag] = HashTable.FirstOrDefault(x => x.Value.Equals(selectedLabel)).Key;
+
+                        //Get HashCode Value
+                        uint hashCode = HashTable.FirstOrDefault(x => x.Value.Equals(selectedLabel)).Key;
+                        saveGameData.Objectives[(uint)objItem.Tag] = hashCode;
+                        objItem.SubItems[3].Text = ContainsHashCode(hashCode).ToString();
                     }
                 }
             }
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------
+        private bool ContainsHashCode(uint hashCodeValue)
+        {
+            bool containsHashCode = false;
+            if ((hashCodeValue & 0xFFFF0000) > 0)
+            {
+                containsHashCode = true;
+            }
+
+            return containsHashCode;
         }
     }
 

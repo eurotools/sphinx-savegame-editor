@@ -42,7 +42,7 @@ namespace SavegameEditor.Reader
                     //Objectives
                     binReader.BaseStream.Seek(0xEC, SeekOrigin.Begin);
                     uint objective_count = binReader.ReadUInt32();
-                    for (int i = 0; i <= objective_count; i++)
+                    for (int i = 0; i < objective_count; i++)
                     {
                         fileData.Objectives.Add(binReader.ReadUInt32(), binReader.ReadUInt32());
                     }
