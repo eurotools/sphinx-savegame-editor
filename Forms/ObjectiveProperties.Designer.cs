@@ -45,8 +45,10 @@ namespace SavegameEditor
             // 
             this.txtObjective.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtObjective.BackColor = System.Drawing.SystemColors.Window;
             this.txtObjective.Location = new System.Drawing.Point(12, 12);
             this.txtObjective.Name = "txtObjective";
+            this.txtObjective.ReadOnly = true;
             this.txtObjective.Size = new System.Drawing.Size(387, 20);
             this.txtObjective.TabIndex = 0;
             // 

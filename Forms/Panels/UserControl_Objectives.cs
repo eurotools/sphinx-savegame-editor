@@ -2,6 +2,7 @@
 using SavegameEditor.Reader;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace SavegameEditor.Forms.Panels
@@ -120,6 +121,23 @@ namespace SavegameEditor.Forms.Panels
                 using (ObjectiveProperties objPropsForm = new ObjectiveProperties(lvwObjectives.SelectedItems))
                 {
                     objPropsForm.ShowDialog();
+                }
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                // Write the string array to a new file named "WriteLines.txt".
+                using (StreamWriter outputFile = new StreamWriter(saveFileDialog1.FileName))
+                {
+                    outputFile.WriteLine("Label;Value");
+                    foreach(ListViewItem objItem in lvwObjectives.Items)
+                    {
+                        outputFile.WriteLine("{0};{1}", objItem.Text, objItem.SubItems[2].Text);
+                    }
                 }
             }
         }

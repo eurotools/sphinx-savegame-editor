@@ -39,6 +39,8 @@ namespace SavegameEditor.Forms.Panels
             this.colObjHashCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colObjValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colObjContainsHashCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.ContextMenuObjectives.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,29 +49,30 @@ namespace SavegameEditor.Forms.Panels
             this.ContextMenuObjectives.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItem_AddObjectives,
             this.MenuItem_DeleteObjective,
-            this.MenuItem_ModifyObjectives});
+            this.MenuItem_ModifyObjectives,
+            this.exportToolStripMenuItem});
             this.ContextMenuObjectives.Name = "contextMenuStrip1";
             this.ContextMenuObjectives.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.ContextMenuObjectives.Size = new System.Drawing.Size(144, 70);
+            this.ContextMenuObjectives.Size = new System.Drawing.Size(181, 114);
             // 
             // MenuItem_AddObjectives
             // 
             this.MenuItem_AddObjectives.Name = "MenuItem_AddObjectives";
-            this.MenuItem_AddObjectives.Size = new System.Drawing.Size(143, 22);
+            this.MenuItem_AddObjectives.Size = new System.Drawing.Size(180, 22);
             this.MenuItem_AddObjectives.Text = "Add";
             this.MenuItem_AddObjectives.Click += new System.EventHandler(this.MenuItem_AddObjectives_Click);
             // 
             // MenuItem_DeleteObjective
             // 
             this.MenuItem_DeleteObjective.Name = "MenuItem_DeleteObjective";
-            this.MenuItem_DeleteObjective.Size = new System.Drawing.Size(143, 22);
+            this.MenuItem_DeleteObjective.Size = new System.Drawing.Size(180, 22);
             this.MenuItem_DeleteObjective.Text = "Delete";
             this.MenuItem_DeleteObjective.Click += new System.EventHandler(this.MenuItem_DeleteObjective_Click);
             // 
             // MenuItem_ModifyObjectives
             // 
             this.MenuItem_ModifyObjectives.Name = "MenuItem_ModifyObjectives";
-            this.MenuItem_ModifyObjectives.Size = new System.Drawing.Size(143, 22);
+            this.MenuItem_ModifyObjectives.Size = new System.Drawing.Size(180, 22);
             this.MenuItem_ModifyObjectives.Text = "Modify Value";
             this.MenuItem_ModifyObjectives.Click += new System.EventHandler(this.MenuItem_ModifyObjectives_Click);
             // 
@@ -112,6 +115,18 @@ namespace SavegameEditor.Forms.Panels
             this.colObjContainsHashCode.Text = "Contains HashCode";
             this.colObjContainsHashCode.Width = 120;
             // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Text = "Export";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileName = "Objectives";
+            this.saveFileDialog1.Filter = "Text File (*.txt)|*.txt";
+            // 
             // UserControl_Objectives
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,5 +150,7 @@ namespace SavegameEditor.Forms.Panels
         private System.Windows.Forms.ToolStripMenuItem MenuItem_DeleteObjective;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_ModifyObjectives;
         private System.Windows.Forms.ColumnHeader colObjContainsHashCode;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

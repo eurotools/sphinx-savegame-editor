@@ -50,8 +50,10 @@ namespace SavegameEditor
             // 
             this.txtHashCodeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtHashCodeLabel.BackColor = System.Drawing.SystemColors.Window;
             this.txtHashCodeLabel.Location = new System.Drawing.Point(12, 12);
             this.txtHashCodeLabel.Name = "txtHashCodeLabel";
+            this.txtHashCodeLabel.ReadOnly = true;
             this.txtHashCodeLabel.Size = new System.Drawing.Size(227, 20);
             this.txtHashCodeLabel.TabIndex = 0;
             // 
