@@ -136,7 +136,7 @@ namespace SavegameEditor.Forms.Panels
                     outputFile.WriteLine("Label;Value");
                     foreach(ListViewItem objItem in lvwObjectives.Items)
                     {
-                        outputFile.WriteLine("{0};{1}", objItem.Text, objItem.SubItems[2].Text);
+                        outputFile.WriteLine("{0}; {1}", objItem.Text, objItem.SubItems[2].Text);
                     }
                 }
             }
